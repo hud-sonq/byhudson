@@ -1,0 +1,3 @@
+<template>
+    <MainBox />
+</template>
