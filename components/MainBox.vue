@@ -1,8 +1,17 @@
 <template>
     <div id="mainBox" ref="mainBox">
-        <div class="box-container">
-            <div class="welcome-gif" ref="wg"><img class="gif-itself" src="/gifs/tload.gif"></div>
-            <div class="welcome-text" ref="wc"><h4>WELCOME</h4></div>
+        <div class="box-container" ref="bc">
+            <div id="gifAndWelcome" v-if="showBox">
+                <div class="welcome-gif" ref="wg">
+                    <!-- <img class="gif-itself" src="/gifs/stylish_op.gif"> -->
+                     <video autoplay loop muted class="gif-itself">
+                        <source src="/load.mp4" type="video/mp4">
+                     </video>
+                </div>
+                <div class="welcome-text-container">
+                    <div id="wc" ref="wc" style="height: fit-content;"><h4>WELCOME</h4></div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -11,15 +20,26 @@
 const mainBox = ref<HTMLElement | null>(null);
 const wg = ref<HTMLElement | null>(null);
 const wc = ref<HTMLElement | null>(null);
+const bc = ref<HTMLElement | null>(null);
+const showBox = ref(true);
 
 onMounted(() => {
+    setTimeout(() => {
+        mainBox.value?.classList.add('active');
+    }, 150);
+    setTimeout(() => {
+        bc.value?.classList.add('glow');
+    }, 400);
+    setTimeout(() => {
+        bc.value?.classList.remove('glow');
+    }, 1500);
     setTimeout(() => {
         wg.value?.classList.add('hide');
         wc.value?.classList.add('active');
     }, 1800);
     setTimeout(() => {
-        mainBox.value?.classList.add('active');
-    }, 100);
+        wc.value?.classList.remove('active');
+    }, 3000);
 });
 
 </script>
@@ -31,6 +51,16 @@ onMounted(() => {
     background-color: var(--bg-primary);
     border: 4px solid var(--accent-primary);
     position: absolute;
+    box-shadow: none;
+    -webkit-box-shadow: none; 
+    -moz-box-shadow: none; 
+    transition: all ease-in-out 0.5s;
+}
+
+.box-container.glow {
+    -webkit-box-shadow:0 0 20px var(--accent-primary); 
+    -moz-box-shadow: 0 0 20px var(--accent-primary); 
+    box-shadow:0 0 20px var(--accent-primary);
 }
 
 #mainBox {
@@ -41,7 +71,7 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     transform: scale(0);
-    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
 }
 
 #mainBox.active {
@@ -58,22 +88,33 @@ onMounted(() => {
     object-fit: cover;
 }
 
-.welcome-text {
-    font-size: 1.5rem;
-    position: absolute;
+.gif-itself {
+    width: 324px;
+    height: 405px;
+}
+
+.welcome-text-container {
+    height: 401px;
+    /* color: var(--text-primary);
+    transition: all cubic-bezier(0.18, 0.82, 0.5, 1) .4s;
+    transform: scale(0);
+    opacity: 0; */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+}
+
+#wc {
+    font-size: 1.5rem;
     color: var(--text-primary);
-    text-align: center;
     transition: all cubic-bezier(0.18, 0.82, 0.5, 1) .4s;
     transform: scale(0);
     opacity: 0;
+    height: fit-content;
 }
 
-.welcome-text.active {
+#wc.active {
     display: flex;
     opacity: 1;
     transform: scale(1);
