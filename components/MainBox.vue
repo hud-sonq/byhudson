@@ -1,15 +1,14 @@
 <template>
     <div id="mainBox" ref="mainBox">
-        <div class="box-container" ref="bc">
-            <div id="gifAndWelcome" v-if="showBox">
-                <div class="welcome-gif" ref="wg">
-                    <!-- <img class="gif-itself" src="/gifs/stylish_op.gif"> -->
+        <div class="welcome-box-container" ref="wbc">
+            <div id="cubesAndWelcome" v-if="showCubesAndWelcome">
+                <div class="cubes" ref="cb">
                      <video autoplay loop muted class="gif-itself">
                         <source src="/load.mp4" type="video/mp4">
                      </video>
                 </div>
                 <div class="welcome-text-container">
-                    <div id="wc" ref="wc" style="height: fit-content;"><h4>WELCOME</h4></div>
+                    <div id="wt" ref="wt" style="height: fit-content;"><h4>WELCOME</h4></div>
                 </div>
             </div>
         </div>
@@ -17,35 +16,34 @@
 </template>
 
 <script setup lang="ts">
+const showCubesAndWelcome = ref(true);
 const mainBox = ref<HTMLElement | null>(null);
-const wg = ref<HTMLElement | null>(null);
-const wc = ref<HTMLElement | null>(null);
-const bc = ref<HTMLElement | null>(null);
-const showBox = ref(true);
+const wbc = ref<HTMLElement | null>(null);
+const cb = ref<HTMLElement | null>(null);
+const wt = ref<HTMLElement | null>(null);
 
 onMounted(() => {
     setTimeout(() => {
         mainBox.value?.classList.add('active');
     }, 150);
     setTimeout(() => {
-        bc.value?.classList.add('glow');
+        wbc.value?.classList.add('glow');
     }, 400);
     setTimeout(() => {
-        bc.value?.classList.remove('glow');
+        wbc.value?.classList.remove('glow');
     }, 1500);
     setTimeout(() => {
-        wg.value?.classList.add('hide');
-        wc.value?.classList.add('active');
+        cb.value?.classList.add('hide');
+        wt.value?.classList.add('active');
     }, 1800);
     setTimeout(() => {
-        wc.value?.classList.remove('active');
-    }, 3000);
+        wt.value?.classList.remove('active');
+    }, 3400);
 });
-
 </script>
 
 <style scoped>
-.box-container {
+.welcome-box-container {
     width: 324px;
     height: 405px;
     background-color: var(--bg-primary);
@@ -57,7 +55,7 @@ onMounted(() => {
     transition: all ease-in-out 0.5s;
 }
 
-.box-container.glow {
+.welcome-box-container.glow {
     -webkit-box-shadow:0 0 20px var(--accent-primary); 
     -moz-box-shadow: 0 0 20px var(--accent-primary); 
     box-shadow:0 0 20px var(--accent-primary);
@@ -78,7 +76,7 @@ onMounted(() => {
     transform: scale(1);
 }
 
-.welcome-gif {
+.cubes {
     width: 100%;
     height: 100%;
     display: flex;
@@ -95,17 +93,13 @@ onMounted(() => {
 
 .welcome-text-container {
     height: 401px;
-    /* color: var(--text-primary);
-    transition: all cubic-bezier(0.18, 0.82, 0.5, 1) .4s;
-    transform: scale(0);
-    opacity: 0; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#wc {
+#wt {
     font-size: 1.5rem;
     color: var(--text-primary);
     transition: all cubic-bezier(0.18, 0.82, 0.5, 1) .4s;
@@ -114,7 +108,7 @@ onMounted(() => {
     height: fit-content;
 }
 
-#wc.active {
+#wt.active {
     display: flex;
     opacity: 1;
     transform: scale(1);
