@@ -1,6 +1,10 @@
 <template>
     <div id="mainBox" ref="mainBox">
         <div class="welcome-box-container" ref="wbc">
+            <div class="brackets" ref="brackets">
+                <div class="tl-bracket"></div>
+                <div class="br-bracket"></div>
+            </div>
             <div id="cubesAndWelcome" v-if="showCubesAndWelcome">
                 <div class="cubes" ref="cb">
                      <video autoplay loop muted class="gif-itself">
@@ -21,6 +25,7 @@ const mainBox = ref<HTMLElement | null>(null);
 const wbc = ref<HTMLElement | null>(null);
 const cb = ref<HTMLElement | null>(null);
 const wt = ref<HTMLElement | null>(null);
+const brackets = ref<HTMLElement | null>(null);
 
 onMounted(() => {
     setTimeout(() => {
@@ -28,9 +33,12 @@ onMounted(() => {
     }, 150);
     setTimeout(() => {
         wbc.value?.classList.add('glow');
+        brackets.value?.classList.add('active');
     }, 400);
     setTimeout(() => {
         wbc.value?.classList.remove('glow');
+        brackets.value?.classList.add('blink');
+        wt.value?.classList.add('blink');
     }, 1500);
     setTimeout(() => {
         cb.value?.classList.add('hide');
@@ -38,7 +46,11 @@ onMounted(() => {
     }, 1800);
     setTimeout(() => {
         wt.value?.classList.remove('active');
+        brackets.value?.classList.remove('active');
     }, 3400);
+    setTimeout(() => {
+        showCubesAndWelcome.value = false;
+    }, 4200);
 });
 </script>
 
@@ -119,6 +131,42 @@ onMounted(() => {
     display: none;
 }
 
+.brackets {
+    opacity: 0;
+    transition: all cubic-bezier(0.18, 0.82, 0.5, 1) .4s;
+}
+
+.brackets.active {
+    opacity: 1;
+}
+
+.brackets.blink {
+    animation: bangblink 1s linear;
+}
+
+#wt.blink {
+    animation: bangblink 1s linear;
+}
+
+.tl-bracket {
+  position: absolute;
+  border-left: 6px solid var(--accent-primary);
+  border-top: 6px solid var(--accent-primary);
+  min-height: 20px;
+  min-width: 20px;
+  left: -16px;
+  top: -16px;
+}
+
+.br-bracket {
+  position: absolute;
+  border-right: 6px solid var(--accent-primary);
+  border-bottom: 6px solid var(--accent-primary);
+  min-height: 20px;
+  min-width: 20px;
+  right: -16px;
+  bottom: -16px;
+}
 
 
 </style>

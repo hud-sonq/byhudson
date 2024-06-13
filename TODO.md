@@ -5,4 +5,4 @@
 # - Contact clickables on bottom left of main box
 # - Great, svg / css only animated UI elements where seen fit
 # - Text content relatively centered and decorated nicely 
-# - Text content: 
+# - Text content: Not sure yet 
