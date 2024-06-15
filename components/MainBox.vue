@@ -15,6 +15,9 @@
                     <div id="wt" ref="wt" style="height: fit-content;"><h4>WELCOME</h4></div>
                 </div>
             </div>
+            <div id="myContentBox" ref="mcb">
+                <ContentBox />
+            </div>
         </div>
     </div>
 </template>
@@ -26,6 +29,7 @@ const wbc = ref<HTMLElement | null>(null);
 const cb = ref<HTMLElement | null>(null);
 const wt = ref<HTMLElement | null>(null);
 const brackets = ref<HTMLElement | null>(null);
+const mcb = ref<HTMLElement | null>(null);
 
 onMounted(() => {
     setTimeout(() => {
@@ -33,16 +37,15 @@ onMounted(() => {
     }, 150);
     setTimeout(() => {
         wbc.value?.classList.add('glow');
-        brackets.value?.classList.add('active');
     }, 400);
     setTimeout(() => {
         wbc.value?.classList.remove('glow');
-        brackets.value?.classList.add('blink');
         wt.value?.classList.add('blink');
     }, 1500);
     setTimeout(() => {
         cb.value?.classList.add('hide');
         wt.value?.classList.add('active');
+        brackets.value?.classList.add('active');
     }, 1800);
     setTimeout(() => {
         wt.value?.classList.remove('active');
@@ -51,10 +54,24 @@ onMounted(() => {
     setTimeout(() => {
         showCubesAndWelcome.value = false;
     }, 4200);
+    setTimeout(() => {
+        mcb.value?.classList.add('active');
+    }, 4400);
 });
 </script>
 
 <style scoped>
+#mainBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
+}
+
 .welcome-box-container {
     width: 324px;
     height: 405px;
@@ -73,16 +90,6 @@ onMounted(() => {
     box-shadow:0 0 20px var(--accent-primary);
 }
 
-#mainBox {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: scale(0);
-    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
-}
 
 #mainBox.active {
     transform: scale(1);
@@ -133,11 +140,12 @@ onMounted(() => {
 
 .brackets {
     opacity: 0;
-    transition: all cubic-bezier(0.18, 0.82, 0.5, 1) .4s;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
 }
 
 .brackets.active {
     opacity: 1;
+    animation: bangblink .6s linear;
 }
 
 .brackets.blink {
@@ -150,8 +158,8 @@ onMounted(() => {
 
 .tl-bracket {
   position: absolute;
-  border-left: 6px solid var(--accent-primary);
-  border-top: 6px solid var(--accent-primary);
+  border-left: 3px solid var(--accent-primary);
+  border-top: 3px solid var(--accent-primary);
   min-height: 20px;
   min-width: 20px;
   left: -16px;
@@ -160,13 +168,31 @@ onMounted(() => {
 
 .br-bracket {
   position: absolute;
-  border-right: 6px solid var(--accent-primary);
-  border-bottom: 6px solid var(--accent-primary);
+  border-right: 3px solid var(--accent-primary);
+  border-bottom: 3px solid var(--accent-primary);
   min-height: 20px;
   min-width: 20px;
   right: -16px;
   bottom: -16px;
 }
 
+#myContentBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: var(--bg-primary);
+    box-shadow: 0 0 20px var(--accent-primary);
+    -webkit-box-shadow: 0 0 20px var(--accent-primary);
+    -moz-box-shadow: 0 0 20px var(--accent-primary);
+    transition: all ease-in-out 0.5s;
+    opacity: 0;
+}
 
+#myContentBox.active {
+    opacity: 1;
+}
 </style>
