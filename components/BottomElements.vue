@@ -1,7 +1,7 @@
 <template>
     <div id="topElements">
         <div class="app-widgets">
-            <div class="widget">
+            <div class="widget" @click="$emit('gallClicked')">
                 <img class="widget-img-itself" src="/photos.svg">
             </div>
             <div class="widget">
@@ -12,6 +12,7 @@
 </template>
 
 <script setup lang="ts">
+const emits = defineEmits(['gallClicked']);
 </script>
 
 <style scoped>
