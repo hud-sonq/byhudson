@@ -38,20 +38,28 @@ body {
     overflow: auto;
 }
 
-#page {
+#nxPage {
     width: 100%;
     height: 100%;
     position: absolute;
 }
 
-@font-face {
-    font-family: ROG;
-    src: url(/fonts/ROG.ttf);
+#ppPage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-none {
+    display: none;
 }
 
 @font-face {
-    font-family: 'practice';
-    src: url(/fonts/PracticeMono.otf);
+    font-family: ROG;
+    src: url(/fonts/ROG.ttf);
 }
 
 h1 {

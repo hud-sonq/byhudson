@@ -1,31 +1,30 @@
 <template>
-  <div id="mainBox" ref="mainBox">
-      <div class="welcome-box-container" ref="wbc">
-          <div class="brackets">
-              <div class="bracket tl-bracket" ref="tlBracket"></div>
-              <div class="bracket br-bracket" ref="brBracket"></div>
-          </div>
-          <div id="cubesAndWelcome" v-if="showCubesAndWelcome">
-              <div class="cubes-video-container" ref="cubesVideoContainer">
-                <div v-if="!videoLoaded" class="loading-icon">Loading...</div>
-                <video v-else @canplaythrough="videoLoaded = true" autoplay loop muted class="gif-itself" ref="cubeVideo">
-                  <source src="/load.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="welcome-text-container">
-                  <div id="wt" ref="wt" style="height: fit-content;"><h4>WELCOME</h4></div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div v-if="!videoLoaded">
+        <h1>load</h1>
+    </div>
+    <div id="welcomeBoxContainer" ref="wbc">
+        <div class="brackets">
+            <div class="bracket tl-bracket" ref="tlBracket"></div>
+            <div class="bracket br-bracket" ref="brBracket"></div>
+        </div>
+        <div id="cubeVideo" v-if="showCubeVideo">
+            <div class="cubes-video-container" ref="cubesVideoContainer">
+              <WelcomeVideo ref="cubeVideo" style="z-index: 3" @loaded="engageContent()"/>
+            </div>
+            <div class="welcome-text-container">
+                <div id="wt" ref="wt" style="height: fit-content;"><h4>WELCOME</h4></div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
-const showCubesAndWelcome = ref(false);
-const videoLoaded = ref(false);
-const cubeVideo = ref<HTMLVideoElement | null>(null);
+const emits = defineEmits(['sequenceDone']);
 
-const mainBox = ref<HTMLElement | null>(null);
+const videoLoaded = ref(false);
+const showCubeVideo = ref(true);
+
+const cubeVideo = ref<HTMLVideoElement | null>(null);
 const wbc = ref<HTMLElement | null>(null);
 const cubesVideoContainer = ref<HTMLElement | null>(null);
 const wt = ref<HTMLElement | null>(null);
@@ -33,10 +32,10 @@ const tlBracket = ref<HTMLElement | null>(null);
 const brBracket = ref<HTMLElement | null>(null);
 
 function engageContent() {
+  videoLoaded.value = true;
   console.log('engaging');
-  showCubesAndWelcome.value = true;
   setTimeout(() => {
-      mainBox.value?.classList.add('active');
+      wbc.value?.classList.add('active');
   }, 150);
   setTimeout(() => {
       wbc.value?.classList.add('glow');
@@ -58,18 +57,16 @@ function engageContent() {
       tlBracket.value?.classList.remove('active');
   }, 3400);
   setTimeout(() => {
-      showCubesAndWelcome.value = false;
+      showCubeVideo.value = false;
       console.log('engaged');
+      emits('sequenceDone');
   }, 4200);
 }
-
-onMounted(() => {
-  engageContent();
-});
 </script>
 
 <style scoped>
-.welcome-box-container {
+
+#welcomeBoxContainer {
   width: 324px;
   height: 405px;
   background-color: var(--bg-primary);
@@ -78,28 +75,18 @@ onMounted(() => {
   box-shadow: none;
   -webkit-box-shadow: none; 
   -moz-box-shadow: none; 
-  transition: all ease-in-out 0.5s;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
+  transform: scale(0);
 }
 
-.welcome-box-container.glow {
+#welcomeBoxContainer.active {
+  transform: scale(1);
+}
+
+#welcomeBoxContainer.glow {
   -webkit-box-shadow:0 0 20px var(--accent-primary); 
   -moz-box-shadow: 0 0 20px var(--accent-primary); 
   box-shadow:0 0 20px var(--accent-primary);
-}
-
-#mainBox {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: scale(0);
-  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
-}
-
-#mainBox.active {
-  transform: scale(1);
 }
 
 .cubes-video-container {
@@ -110,11 +97,6 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
   object-fit: cover;
-}
-
-.gif-itself {
-  width: 324px;
-  height: 405px;
 }
 
 .welcome-text-container {

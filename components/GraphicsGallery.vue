@@ -75,7 +75,6 @@ span {
     align-items: center;
     background-color: var(--bg-primary);
     box-shadow: -4px 4px var(--accent-primary);
-    z-index: 1;
 }
 
 .top-label-area {
