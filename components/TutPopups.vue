@@ -2,7 +2,7 @@
     <div id="tutPopups" :style="currentPositionStyle">
         <div class="text-content-container">
             <div class="text-with-ok">
-                <div class="close-x" @click="emit('closeTut')">
+                <div class="close-x">
                     <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeTut')"/>
                 </div>
                 <div class="text-2"><span>{{ currentText }}</span></div>
@@ -88,7 +88,6 @@ function moveToNextPosition() {
 .close-x {
     position: absolute;
     top: 0;
-    cursor: pointer;
     width: 100%;
     height: 16px;
     padding-top: 2px;
@@ -100,6 +99,7 @@ function moveToNextPosition() {
     height: 16px;
     position: absolute;
     right: 2px;
+    cursor: pointer;
 }
 
 .ok-button-container {

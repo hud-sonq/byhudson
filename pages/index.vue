@@ -6,7 +6,7 @@
         <div id="mainBox" class="" ref="mainBox" >
             <MainBox />
         </div>
-     </div>
+    </div>
 </template>
 
 <script setup lang="ts">

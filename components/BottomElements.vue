@@ -1,18 +1,18 @@
 <template>
     <div id="topElements">
         <div class="app-widgets">
+            <div class="widget">
+                <img class="widget-img-itself" @click="$emit('weatherClicked')" src="/weather.svg">
+            </div>
             <div class="widget" @click="$emit('gallClicked')">
                 <img class="widget-img-itself" src="/photos.svg">
-            </div>
-            <div class="widget">
-                <img class="widget-img-itself" src="/weather.svg">
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-const emits = defineEmits(['gallClicked']);
+const emits = defineEmits(['gallClicked', 'weatherClicked']);
 </script>
 
 <style scoped>

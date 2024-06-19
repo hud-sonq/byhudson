@@ -55,6 +55,7 @@ function engageContent() {
   setTimeout(() => {
       wt.value?.classList.remove('active');
       tlBracket.value?.classList.remove('active');
+      brBracket.value?.classList.remove('active');
   }, 3400);
   setTimeout(() => {
       showCubeVideo.value = false;

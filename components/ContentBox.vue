@@ -1,5 +1,8 @@
 <template>
     <div id="contentBoxBoi">
+        <div class="expand-bracket">
+            <div class="bracket tr-bracket" ref="trBracket" @click="$emit('fsClicked')"></div>
+        </div>
         <TopElements />
         <TutPopups v-if="showTutorial" @closeTut="showTutorial = !showTutorial"/>
         <GlobeDeco />
@@ -13,6 +16,7 @@
 <script setup lang="ts">
 const showGallery = ref(false);
 const showTutorial = ref(true);
+const emits = defineEmits(['fsClicked']);
 const props = {
     picz: [
         '/GRAVITRON_1.png', 
@@ -45,6 +49,17 @@ const props = {
 .reveal-enter-from,
 .reveal-leave-to {
     animation: reveal 50ms linear reverse;
+}
+
+.tr-bracket {
+    position: absolute;
+    border-right: 6px solid var(--accent-primary);
+    border-top: 6px solid var(--accent-primary);
+    min-height: 20px;
+    min-width: 20px;
+    right: -16px;
+    top: -16px;
+    cursor: pointer;
 }
 
 
