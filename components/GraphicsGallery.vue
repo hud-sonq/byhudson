@@ -8,10 +8,10 @@
                 </div>
             </div>
             <div class="arrow left" @click="photoLeft()">
-                <span><</span>
+                <span>[</span>
             </div>
             <div class="arrow right" @click="photoRight()">
-                <span>></span>
+                <span>]</span>
             </div>
             <div class="gallery-picz-container">
                 <img :src="currentImage" alt="gallery" class="gallery-pic-itself"/>
@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 const emit = defineEmits(['closeClicked']);
-const props = defineProps  <{
+const props = defineProps<{
   picz: any[];
 }>()
 
@@ -136,5 +136,4 @@ span {
     width: calc(100% + 6px);
     height: 100%;
 }
-
 </style>

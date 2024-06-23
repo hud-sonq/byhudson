@@ -4,12 +4,15 @@
             <img class="pfp-itself" src="/pfp.png" alt="Profile Picture">
         </div>
         <div class="links">
-            <div class="linktree"><img class="linktree-itself" src="/linktree.svg"></div>
+            <div class="linktree"><img class="linktree-itself" src="/linktree.svg" @click="navigate(`https://linktr.ee/hudsonjq`)"></div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+const navigate = (url: any) => {
+  window.open(url, '_blank')
+}
 </script>
 
 <style scoped>
