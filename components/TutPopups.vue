@@ -34,7 +34,7 @@ const tutTexts = [
 let currentTextIndex = ref(0);
 
 const currentText = computed(() => tutTexts[currentTextIndex.value]);
-const okText = computed(() => currentTextIndex.value === tutTexts.length - 1 ? 'FINISH' : 'OK');
+const okText = computed(() => currentTextIndex.value === tutTexts.length - 1 ? 'FINISH' : 'NEXT');
 const positions = [
     { top: '80px', left: '8px', right: 'auto', bottom: 'auto' },
     { top: '80px', left: '8px', right: 'auto', bottom: 'auto' },

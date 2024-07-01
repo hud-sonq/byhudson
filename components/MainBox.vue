@@ -20,7 +20,7 @@ function enterFullScreen() {
     width: 324px;
     height: 405px;
     background-color: var(--bg-primary);
-    border: 4px solid var(--accent-primary);
+    border: 2px solid var(--accent-primary);
     position: absolute;
     -webkit-box-shadow:0 0 20px var(--accent-primary); 
     -moz-box-shadow: 0 0 20px var(--accent-primary); 

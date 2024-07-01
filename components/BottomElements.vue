@@ -1,6 +1,6 @@
 <template>
     <div id="bottomElements">
-        <div id="bottomDeco"><img src="/uiline.svg"></div>
+        <div id="bottomDeco"><img class="uiline-itself" src="/uiline.svg"></div>
         <div class="app-widgets">
             <!-- <div class="widget">
                 <img class="widget-img-itself" @click="$emit('weatherClicked')" src="/weather.svg">
@@ -47,15 +47,13 @@ const navigate = (url: any) => {
     justify-content: center;
     align-items: center;
     margin-left: auto;
-    border: 1px solid red;
 }
 
 #bottomDeco {
     position: absolute;
     top: -16px;;
-    left: 0;
-    width: 100%;
-    height: 16px;
+    right: 0;
+    height: 24px;
 }
 
 .widget {
@@ -71,6 +69,12 @@ const navigate = (url: any) => {
 }
 
 .linktree-itself{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.uiline-itself {
     height: 100%;
     width: 100%;
     object-fit: contain;

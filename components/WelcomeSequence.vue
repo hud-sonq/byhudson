@@ -71,7 +71,7 @@ function engageContent() {
   width: 324px;
   height: 405px;
   background-color: var(--bg-primary);
-  border: 4px solid var(--accent-primary);
+  border: 2px solid var(--accent-primary);
   position: absolute;
   box-shadow: none;
   -webkit-box-shadow: none; 

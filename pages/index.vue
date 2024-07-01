@@ -13,9 +13,7 @@
 <script setup lang="ts">
 let welcomeSequence = ref<HTMLElement | null>(null);
 let mainBox = ref<HTMLElement | null>(null);
-
 let showWelcome = ref(true);
-
 function hideWelcome() {
     showWelcome.value = false;
     mainBox.value?.classList.add('show');

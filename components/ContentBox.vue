@@ -1,10 +1,11 @@
 <template>
     <div id="contentBoxBoi">
-        <div class="centered-option"><MidMail /></div>
-        <div class="expand-bracket">
+        <!-- <div class="expand-bracket">
             <div class="bracket tr-bracket" ref="trBracket" @click="$emit('fsClicked')"></div>
-        </div>
+        </div> -->
+        <TopNav />
         <TopElements />
+        <MidMail />
         <Transition name="reveal">
             <TutPopups v-if="showTutorial" @closeTut="showTutorial = !showTutorial"/>
         </Transition>
