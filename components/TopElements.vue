@@ -3,17 +3,8 @@
         <div class="pfp">
             <img class="pfp-itself" src="/pfp.png" alt="Profile Picture">
         </div>
-        <div class="links">
-            <div class="linktree"><img class="linktree-itself" src="/linktree.svg" @click="navigate(`https://linktr.ee/hudsonjq`)"></div>
-        </div>
     </div>
 </template>
-
-<script setup lang="ts">
-const navigate = (url: any) => {
-  window.open(url, '_blank')
-}
-</script>
 
 <style scoped>
 
@@ -42,7 +33,7 @@ const navigate = (url: any) => {
 }
 
 .links {
-    position: absolute; 
+    position: absolute;
     top: 8px;
     right: 8px;
     border: 2px solid var(--accent-primary);
@@ -81,6 +72,4 @@ const navigate = (url: any) => {
     width: 100%;
     object-fit: contain;
 }
-
-
 </style>

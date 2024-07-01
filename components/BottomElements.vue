@@ -1,11 +1,15 @@
 <template>
-    <div id="topElements">
+    <div id="bottomElements">
+        <div id="bottomDeco"><img src="/uiline.svg"></div>
         <div class="app-widgets">
-            <div class="widget">
+            <!-- <div class="widget">
                 <img class="widget-img-itself" @click="$emit('weatherClicked')" src="/weather.svg">
-            </div>
+            </div> -->
             <div class="widget" @click="$emit('gallClicked')">
-                <img class="widget-img-itself" src="/photos.svg">
+                <img class="widget-img-itself" src="/gallNew.svg">
+            </div>
+            <div class="widget">
+                <img class="linktree-itself" src="/linktree.svg" @click="navigate(`https://linktr.ee/hudsonjq`)">
             </div>
         </div>
     </div>
@@ -13,16 +17,18 @@
 
 <script setup lang="ts">
 const emits = defineEmits(['gallClicked', 'weatherClicked']);
+const navigate = (url: any) => {
+  window.open(url, '_blank')
+}
 </script>
 
 <style scoped>
 
-#topElements {
+#bottomElements {
     position: absolute; 
     bottom: 0;
     left: 0;
-    height: 72px;
-    margin-bottom: 8px;
+    height: 48px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -30,20 +36,26 @@ const emits = defineEmits(['gallClicked', 'weatherClicked']);
     align-items: center;
 }
 
+
 .app-widgets {
-    height: 54px;
+    position: absolute;
+    right: 0;
+    height: 100%;
     width: fit-content;
     display: flex;
-    gap: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-left: auto;
-    margin-right: 8px;
-    border: 2px solid var(--accent-primary);
-    box-shadow: -4px 4px var(--accent-primary); 
+    border: 1px solid red;
+}
+
+#bottomDeco {
+    position: absolute;
+    top: -16px;;
+    left: 0;
+    width: 100%;
+    height: 16px;
 }
 
 .widget {
@@ -58,5 +70,9 @@ const emits = defineEmits(['gallClicked', 'weatherClicked']);
     object-fit: contain;
 }
 
-
+.linktree-itself{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
 </style>

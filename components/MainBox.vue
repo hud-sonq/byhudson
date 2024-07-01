@@ -12,7 +12,7 @@ function enterFullScreen() {
     wbc.value?.classList.add('fullscreen');
 }
 
-</script>
+</script>   
 
 <style scoped>
 

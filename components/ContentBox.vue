@@ -1,10 +1,13 @@
 <template>
     <div id="contentBoxBoi">
+        <div class="centered-option"><MidMail /></div>
         <div class="expand-bracket">
             <div class="bracket tr-bracket" ref="trBracket" @click="$emit('fsClicked')"></div>
         </div>
         <TopElements />
-        <TutPopups v-if="showTutorial" @closeTut="showTutorial = !showTutorial"/>
+        <Transition name="reveal">
+            <TutPopups v-if="showTutorial" @closeTut="showTutorial = !showTutorial"/>
+        </Transition>
         <GlobeDeco />
         <BottomElements @gallClicked="showGallery = !showGallery"/>
         <Transition name="reveal">
@@ -31,7 +34,6 @@ const props = {
         '/TESTING_2.png',
     ]
 }
-
 </script>
 
 <style scoped>
@@ -41,14 +43,24 @@ const props = {
     height: 100%;
 }
 
+.centered-option {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
 .reveal-enter-active,
 .reveal-leave-active {
-    animation: reveal 50ms linear;
+    animation: reveal 123ms linear;
 }
 
 .reveal-enter-from,
 .reveal-leave-to {
-    animation: reveal 50ms linear reverse;
+    animation: reveal 123ms linear reverse;
 }
 
 .tr-bracket {
@@ -61,6 +73,4 @@ const props = {
     top: -16px;
     cursor: pointer;
 }
-
-
 </style>

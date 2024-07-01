@@ -9,7 +9,7 @@
         </div>
         <div id="cubeVideo" v-if="showCubeVideo">
             <div class="cubes-video-container" ref="cubesVideoContainer">
-              <WelcomeVideo ref="cubeVideo" style="z-index: 3" @loaded="engageContent()"/>
+              <WelcomeVideo ref="cubeVideo" style="z-index: 10" @loaded="engageContent()"/>
             </div>
             <div class="welcome-text-container">
                 <div id="wt" ref="wt" style="height: fit-content;"><h4>WELCOME</h4></div>
@@ -41,7 +41,7 @@ function engageContent() {
       wbc.value?.classList.add('glow');
       tlBracket.value?.classList.add('active');
       brBracket.value?.classList.add('active');
-  }, 400);
+  }, 500);
   setTimeout(() => {
       wbc.value?.classList.remove('glow');
       tlBracket.value?.classList.add('blink');

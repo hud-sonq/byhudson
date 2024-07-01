@@ -16,33 +16,32 @@
 </script>
 
 <style>
-
 #midMail {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  z-index: 6;
+  pointer-events: none;
 }
 
 .mid-mail-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 8px;
-    border: 2px solid var(--accent-primary);
-    box-shadow: -4px 4px var(--accent-tertiary);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 2px solid var(--accent-primary);
+  box-shadow: -4px 4px var(--accent-tertiary);
 }
 
 .mid-mail-img-container {
-    height: fit-content;
-    width: fit-content;
+  height: fit-content;
+  width: fit-content;
 }
 
 .mid-mail-img-itself {
-    height: 28px;
-    width: 28px;
+  height: 28px;
+  width: 28px;
 }
-
 </style>

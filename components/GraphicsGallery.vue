@@ -61,6 +61,7 @@ span {
     align-items: center;
     position: absolute;
     pointer-events: none;
+    z-index: 11;
 }
 
 .graphics-gallery-items {
@@ -85,7 +86,7 @@ span {
     left: 0;
     height: 18px;
     border-bottom: 2px solid var(--accent-primary);
-    z-index: 1;
+    z-index: 7;
     padding-bottom: 2px;
     user-select: none;
 }
@@ -99,6 +100,7 @@ span {
     width: 24px;
     height: 24px;
     border: 2px solid var(--accent-primary);
+    background-color: var(--bg-primary);
     cursor: pointer;
     user-select: none;
 }

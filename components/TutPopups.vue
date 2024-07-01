@@ -1,5 +1,5 @@
 <template>
-    <div id="tutPopups" :style="currentPositionStyle">
+    <div id="tutPopups" :style="currentPositionStyle" v-if="!tutComplete">
         <div class="text-content-container">
             <div class="text-with-ok">
                 <div class="close-x">
@@ -19,6 +19,8 @@
 <script setup lang="ts">
 
 const emit = defineEmits(['closeTut']);
+
+const tutComplete = ref(false);
 
 const tutTexts = [
     `YO! I'M HUDSON, I DO STUFF...`,
@@ -48,8 +50,12 @@ const currentPositionStyle = computed(() => ({
 }));
 
 function moveToNextPosition() {
-    currentPositionIndex.value = (currentPositionIndex.value + 1) % positions.length;
-    currentTextIndex.value = (currentTextIndex.value + 1) % tutTexts.length;
+    if (currentTextIndex.value === tutTexts.length - 1) {
+        tutComplete.value = true;
+    } else {
+        currentPositionIndex.value = (currentPositionIndex.value + 1) % positions.length;
+        currentTextIndex.value = (currentTextIndex.value + 1) % tutTexts.length;
+    }
 }
 </script>
 
@@ -57,16 +63,18 @@ function moveToNextPosition() {
 
 #tutPopups {
     position: absolute;
+    z-index: 9;
 }
 
 .text-content-container {
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 8;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-color: var(--bg-primary);
 }
 
 .text-with-ok {
@@ -74,6 +82,7 @@ function moveToNextPosition() {
     padding-top: 18px;
     border: 2px solid var(--accent-primary);
     animation: slideUpDown .8s infinite ease-in-out;
+    background-color: var(--bg-primary);
 }
 
 @keyframes slideUpDown {
