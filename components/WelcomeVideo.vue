@@ -1,6 +1,6 @@
 <template>
   <div id="#seqTest">
-      <video class="video-itself" @canplaythrough="handleCanPlayThrough()" autoplay muted loop>
+      <video class="video-itself" @canplaythrough="handleCanPlayThrough()" autoplay muted playsinline>
         <source src="/load.mp4" type="video/mp4" />
       </video>
   </div>
