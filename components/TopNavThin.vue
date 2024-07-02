@@ -34,7 +34,7 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
     border-inline: 2px solid var(--accent-primary);
     border-bottom: 2px solid var(--accent-primary);
     background-color: var(--bg-primary);
-    z-index: 10;
+    z-index: 12;
 }
 
 .nav-thirds-split {

@@ -5,7 +5,6 @@
         </div>
         <div id="mainBox" class="" ref="mainBox" >
             <MainBox />
-             <!-- <ContentSoon /> -->
         </div>
     </div>
 </template>

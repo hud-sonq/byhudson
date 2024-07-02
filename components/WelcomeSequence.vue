@@ -1,6 +1,6 @@
 <template>
     <div v-if="!videoLoaded">
-        <h1>load</h1>
+        <h4>load...</h4>
     </div>
     <div id="welcomeBoxContainer" ref="wbc">
         <div class="brackets">

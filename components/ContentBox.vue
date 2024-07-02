@@ -17,11 +17,11 @@
         <Transition name="reveal">
             <GraphicsGallery v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="props"/>
         </Transition>
-        <div id="infoBoxRoot">
-            <Transition name="reveal">
-                <InfoBox v-if="showInfo" @closeInfo="handleInfoClicked"/>
-            </Transition>
-        </div>
+        <Transition name="reveal">
+            <div id="infoBoxRoot" v-if="showInfo">
+                <InfoBox  @closeInfo="handleInfoClicked"/>
+            </div>
+        </Transition>
     </div>
 </template>
 
