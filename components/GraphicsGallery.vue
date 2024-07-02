@@ -138,4 +138,10 @@ span {
     width: calc(100% + 6px);
     height: 100%;
 }
+
+@media (max-width: 768px) {
+    .gallery-pic-itself {
+        width: 100%;
+    }
+}
 </style>
