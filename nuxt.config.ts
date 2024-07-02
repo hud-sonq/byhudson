@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  css: ['~/global.css'],
+  css: ['~/public/global.css'],
   ssr: false,
   nitro: {
     serveStatic: true,
