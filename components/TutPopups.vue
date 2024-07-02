@@ -26,9 +26,7 @@ const tutTexts = [
     `YO! I'M HUDSON, I DO STUFF...`,
     `WEB DEV, SCI-FI ART, MOTION GRAPHICS...`,
     `CONTACT ME FOR BUSINESS HERE!`,
-    `CHECK OUT MY GRAPHICS HERE!`,
-    `OR CHECK THE WEATHER HERE...`,
-    `AND HERE'S MY SOCIALS!`,
+    `MORE STUFF HERE!`,
 ];
 
 let currentTextIndex = ref(0);
@@ -40,8 +38,6 @@ const positions = [
     { top: '80px', left: '8px', right: 'auto', bottom: 'auto' },
     { top: '80px', left: 'auto', right: '24px', bottom: 'auto' },
     { top: 'auto', left: 'auto', right: '8px', bottom: '90px' },
-    { top: 'auto', left: 'auto', right: '24px', bottom: '90px' },
-    { top: '80px', left: 'auto', right: '8px', bottom: 'auto' },
 ];
 let currentPositionIndex = ref(0);
 

@@ -1,7 +1,7 @@
 <template>
     <div id="ppPage">
         <div id="welcomeSequence" ref="welcomeSequence">
-            <WelcomeSequence v-i="showWelcome" @sequenceDone="hideWelcome()"/>
+            <WelcomeSequence @sequenceDone="showMain()"/>
         </div>
         <div id="mainBox" class="" ref="mainBox" >
             <MainBox />
@@ -13,9 +13,7 @@
 <script setup lang="ts">
 let welcomeSequence = ref<HTMLElement | null>(null);
 let mainBox = ref<HTMLElement | null>(null);
-let showWelcome = ref(true);
-function hideWelcome() {
-    showWelcome.value = false;
+function showMain() {
     mainBox.value?.classList.add('show');
 }
 </script>
@@ -27,10 +25,12 @@ function hideWelcome() {
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
 }
 
 #mainBox.show {
     opacity: 1;
+    pointer-events: all;
 }
 
 #welcomeSequence {

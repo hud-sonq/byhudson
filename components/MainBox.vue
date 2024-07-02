@@ -1,6 +1,6 @@
 <template>
     <div class="content-box-container" ref="wbc">
-        <ContentBox @fsClicked="enterFullScreen()"/>
+        <ContentBox @fsClicked="handleFullScreen()"/>
     </div>
 </template>
 
@@ -8,8 +8,10 @@
 
 let wbc = ref<HTMLElement | null>(null);
 
-function enterFullScreen() {
-    wbc.value?.classList.add('fullscreen');
+function handleFullScreen() {
+    if (wbc.value) {
+        wbc.value.classList.toggle('fullscreen');
+    }
 }
 
 </script>   

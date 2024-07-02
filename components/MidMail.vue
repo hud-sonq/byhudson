@@ -15,7 +15,7 @@
 
 </script>
 
-<style>
+<style scoped>
 #midMail {
   position: absolute;
   right: 0;

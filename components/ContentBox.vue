@@ -3,7 +3,10 @@
         <!-- <div class="expand-bracket">
             <div class="bracket tr-bracket" ref="trBracket" @click="$emit('fsClicked')"></div>
         </div> -->
-        <TopNav />
+        <TopNav @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked"/>
+        <div ref="thinNavRoot" id="thinNavRoot" v-if="inFullscreen">
+            <TopNavThin @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked"/>
+        </div>
         <TopElements />
         <MidMail />
         <Transition name="reveal">
@@ -14,13 +17,32 @@
         <Transition name="reveal">
             <GraphicsGallery v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="props"/>
         </Transition>
+        <div id="infoBoxRoot">
+            <Transition name="reveal">
+                <InfoBox v-if="showInfo" @closeInfo="handleInfoClicked"/>
+            </Transition>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 const showGallery = ref(false);
 const showTutorial = ref(true);
+const inFullscreen = ref(false);
+const showInfo = ref(false);
+const thinNavRoot = ref<HTMLElement | null>(null);
 const emits = defineEmits(['fsClicked']);
+function handleExpandClicked() {
+    inFullscreen.value = !inFullscreen.value;
+    emits('fsClicked');
+    setTimeout(() => {
+        thinNavRoot.value?.classList.toggle('active');
+    }, 800);
+}
+function handleInfoClicked() {
+    showInfo.value = !showInfo.value;
+}
+
 const props = {
     picz: [
         '/GRAVITRON_1.png', 
@@ -66,6 +88,7 @@ const props = {
 
 .tr-bracket {
     position: absolute;
+    top: 0;
     border-right: 6px solid var(--accent-primary);
     border-top: 6px solid var(--accent-primary);
     min-height: 20px;
@@ -73,5 +96,37 @@ const props = {
     right: -16px;
     top: -16px;
     cursor: pointer;
+}
+
+#thinNavRoot {
+    opacity: 0;
+    position: absolute;
+    top: -100vh;
+    transition: top .4s cubic-bezier(0.18, 0.82, 0.5, 1);
+    width: 100%;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+}
+
+#thinNavRoot.active {
+    top: 0;
+    opacity: 1;
+}
+
+#infoBoxRoot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
 }
 </style>

@@ -21,7 +21,6 @@
 </template>
 
 <script setup lang="ts">
-
 const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
 
 </script>
@@ -29,14 +28,13 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
 <style scoped>
 
 #navContainer {
-    position: absolute;
-    top: -24px;
-    left: -6px;
-    width: 100%;
+    width: 96px;
     height: 20px;
     margin-inline: 4px;
-    border: 2px solid white;
+    border-inline: 2px solid var(--accent-primary);
+    border-bottom: 2px solid var(--accent-primary);
     background-color: var(--bg-primary);
+    z-index: 10;
 }
 
 .nav-thirds-split {
@@ -54,14 +52,13 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 2px;
-    margin-left: 2px;
 }
 
 .btn-expand-container {
     height: 16px;
     width: 16px;
     cursor: pointer;
+    margin-right: 4px;
 }
 
 .btn-expand-itself {
@@ -69,14 +66,10 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
     width: 100%;
 }
 
-.lev {
-    height: 21px;
-    width: 20px;
-}
-
 .levitate-itself {
     height: 21px;
     width: 16px;
+    margin-left: 2px;
 }
 
 .deco-container {
@@ -85,9 +78,15 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
     width: 20px;
 }
 
+.lev {
+    height: 20px;
+    width: 20px;
+}
+
 .info-itself {
     height: 23px;
     width: 23px;
+    padding-right: 4px;
 }
 
 </style>
