@@ -2,6 +2,9 @@
     <div id="tutPopups" :style="currentPositionStyle" v-if="!tutComplete">
         <div class="text-content-container">
             <div class="text-with-ok">
+                <div class="arrow-container" :class="arrowStyle" ref="arrowContainer">
+                    <img src="/arrow1.svg">
+                </div>
                 <div class="close-x">
                     <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeTut')"/>
                 </div>
@@ -17,42 +20,53 @@
 </template>
 
 <script setup lang="ts">
-
 const emit = defineEmits(['closeTut']);
-
 const tutComplete = ref(false);
+
+let arrowContainer = ref<HTMLElement | null>(null);
 
 const tutTexts = [
     `YO! I'M HUDSON, I DO STUFF...`,
     `WEB DEV, SCI-FI ART, MOTION GRAPHICS...`,
-    `CONTACT ME FOR BUSINESS HERE!`,
+    `CONTACT ME FOR BUSINESS AT THIS EMAIL!`,
     `MORE STUFF HERE!`,
 ];
 
 let currentTextIndex = ref(0);
-
 const currentText = computed(() => tutTexts[currentTextIndex.value]);
 const okText = computed(() => currentTextIndex.value === tutTexts.length - 1 ? 'FINISH' : 'NEXT');
-const positions = [
+
+const mainBoxPositions = [
     { top: '80px', left: '8px', right: 'auto', bottom: 'auto' },
     { top: '80px', left: '8px', right: 'auto', bottom: 'auto' },
     { top: '80px', left: 'auto', right: '24px', bottom: 'auto' },
     { top: 'auto', left: 'auto', right: '8px', bottom: '90px' },
 ];
+
+
 let currentPositionIndex = ref(0);
 
 const currentPositionStyle = computed(() => ({
-    ...positions[currentPositionIndex.value],
+    ...mainBoxPositions[currentPositionIndex.value],
 }));
 
 function moveToNextPosition() {
     if (currentTextIndex.value === tutTexts.length - 1) {
         tutComplete.value = true;
     } else {
-        currentPositionIndex.value = (currentPositionIndex.value + 1) % positions.length;
+        currentPositionIndex.value = (currentPositionIndex.value + 1) % mainBoxPositions.length;
         currentTextIndex.value = (currentTextIndex.value + 1) % tutTexts.length;
     }
 }
+
+const arrowStyle = computed(() => {
+    if (currentPositionIndex.value < mainBoxPositions.length - 1) {
+        return 'tleft';
+    } else {
+        return 'bright';
+    }
+});
+
 </script>
 
 <style scoped>
@@ -80,6 +94,26 @@ function moveToNextPosition() {
     animation: slideUpDown .8s infinite ease-in-out;
     background-color: var(--bg-primary);
 }
+
+.arrow-container {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+}
+
+.tleft {
+    transform: rotate(0deg);
+    top: -16px;
+    left: -2px;
+}
+
+.bright {
+    transform: rotate(180deg);
+    bottom: -16px;
+    right: -2px;
+}
+
+
 
 @keyframes slideUpDown {
   0%, 100% {
