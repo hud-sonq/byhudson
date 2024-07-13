@@ -2,7 +2,9 @@
   <div id="midMail">
     <div class="mid-mail-container">
       <div class="mid-mail-img-container">
-        <img src="/midmail2.svg" alt="midmail" class="mid-mail-img-itself">
+        <a href="mailto:work@byhudson.dev">
+          <img src="/midmail2.svg" alt="midmail" class="mid-mail-img-itself">
+        </a>
       </div>
       <div class="mid-mail-text">
         <span>work@byhudson.dev</span>
@@ -11,9 +13,6 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-
-</script>
 
 <style scoped>
 #midMail {

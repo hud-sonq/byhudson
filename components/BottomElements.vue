@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-const emits = defineEmits(['gallClicked', 'weatherClicked']);
+const emits = defineEmits(['gallClicked']);
 const navigate = (url: any) => {
   window.open(url, '_blank')
 }
