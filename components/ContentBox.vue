@@ -1,8 +1,5 @@
 <template>
     <div id="contentBoxBoi">
-        <!-- <div class="expand-bracket">
-            <div class="bracket tr-bracket" ref="trBracket" @click="$emit('fsClicked')"></div>
-        </div> -->
         <TopNav @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked"/>
         <div ref="thinNavRoot" id="thinNavRoot" v-if="inFullscreen">
             <TopNavThin @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked"/>
@@ -19,7 +16,7 @@
         </Transition>
         <Transition name="reveal">
             <div id="infoBoxRoot" v-if="showInfo">
-                <InfoBox  @closeInfo="handleInfoClicked"/>
+                <InfoBox @closeInfo="handleInfoClicked"/>
             </div>
         </Transition>
     </div>

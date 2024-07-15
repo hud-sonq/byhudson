@@ -1,6 +1,6 @@
 <template>
     <div id="ppPage">
-        <div id="welcomeSequence" ref="welcomeSequence" v-if="siteEntered">
+        <div id="welcomeSequence" ref="welcomeSequence">
             <WelcomeSequence @sequenceDone="showMain()"/>
         </div>
         <div id="mainBox" class="" ref="mainBox" >
@@ -12,7 +12,6 @@
 <script setup lang="ts">
 let welcomeSequence = ref<HTMLElement | null>(null);
 let mainBox = ref<HTMLElement | null>(null);
-let siteEntered = ref(false);
 function showMain() {
     mainBox.value?.classList.add('show');
 }

@@ -5,15 +5,15 @@
                 <p>SOUND ENABLED?</p>
             </div>
             <div class="buttons-container">
-                <div class="button"><p>NO</p></div>
-                <div class="button"><p>YES</p></div>
+                <div class="button" @click="$emit('soundDisabled')"><p>NO</p></div>
+                <div class="button" @click="$emit('soundEnabled')"><p>YES</p></div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-const emits = defineEmits(['gallClicked']);
+const emits = defineEmits(['soundEnabled', 'soundDisabled']);
 </script>
 
 <style scoped>
