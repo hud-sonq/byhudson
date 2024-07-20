@@ -14,7 +14,6 @@ const hasEmitted = ref(false);
 
 function handleCanPlayThrough() {
   if (!hasEmitted.value) {
-    console.log('can play through');
     emits('loaded');
     hasEmitted.value = true;
   }
@@ -23,7 +22,7 @@ function handleCanPlayThrough() {
 
 <style scoped>
 .video-itself {
-  width: 324px;
-  height: 405px;
+  width: var(--user-width);
+  height: var(--user-height);
 }
 </style>

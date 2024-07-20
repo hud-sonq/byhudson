@@ -1,11 +1,13 @@
 # - TODO
 
-## - sound sprites on welcome seq, site clicks
+## - sound sprites site clicks
 
-## - background pad (enable / disable button)
+## - background pad enable / disable button
 
-## - more ui elements
+## - in addition to enableSound setup, size setup
 
 ## - projects section
 
 ## - more in about me
+
+## - more ui elements

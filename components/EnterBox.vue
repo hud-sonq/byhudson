@@ -1,19 +1,32 @@
 <template>
     <div class="enter-box-main-container">
-        <div class="buttons-and-text-container">
+        <div class="buttons-and-text-container" id="soundSelector" v-if="!soundSelected">
             <div class="text">
                 <p>SOUND ENABLED?</p>
             </div>
             <div class="buttons-container">
-                <div class="button" @click="$emit('soundDisabled')"><p>NO</p></div>
-                <div class="button" @click="$emit('soundEnabled')"><p>YES</p></div>
+                <div class="button" @click="$emit('soundDisabled'), soundSelected = !soundSelected"><p>NO</p></div>
+                <div class="button" @click="$emit('soundEnabled'), soundSelected = !soundSelected"><p>YES</p></div>
             </div>
         </div>
+        <Transition name="reveal">
+            <div class="buttons-and-text-container" id="sizeSelector" v-if="soundSelected">
+                <div class="text">
+                    <p>VISUAL SIZE?</p>
+                </div>
+                <div class="buttons-container">
+                    <div class="button" @click="$emit('smaller')"><p>SMALLER</p></div>
+                    <div class="button" @click="$emit('larger')"><p>LARGER</p></div>
+                </div>
+            </div>
+        </Transition>
     </div>
 </template>
 
 <script setup lang="ts">
-const emits = defineEmits(['soundEnabled', 'soundDisabled']);
+const emits = defineEmits(['soundEnabled', 'soundDisabled', 'smaller', 'larger']);
+const soundSelected = ref(false);
+
 </script>
 
 <style scoped>

@@ -3,9 +3,9 @@
         <h4>load...</h4>
     </div>
     <div id="welcomeBoxContainer" ref="wbc">
-        <div class="brackets">
-            <div class="bracket tl-bracket" ref="tlBracket"></div>
-            <div class="bracket br-bracket" ref="brBracket"></div>
+        <div id="brackets" ref="brackets" class="">
+            <div class="bracket tl-bracket"></div>
+            <div class="bracket br-bracket"></div>
         </div>
         <div id="cubeVideo" v-if="showCubeVideo">
             <div class="cubes-video-container" ref="cubesVideoContainer">
@@ -28,16 +28,15 @@ const cubeVideo = ref<HTMLVideoElement | null>(null);
 const wbc = ref<HTMLElement | null>(null);
 const cubesVideoContainer = ref<HTMLElement | null>(null);
 const wt = ref<HTMLElement | null>(null);
-const tlBracket = ref<HTMLElement | null>(null);
-const brBracket = ref<HTMLElement | null>(null);
+const brackets = ref<HTMLElement | null>(null);
 
 const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
 
 const introSound = new Howl({
-  src: ['/intro.mp3']
+  src: ['/intro-minor.mp3']
 });
 const loopSound = new Howl({
-  src: ['/loop.mp3']
+  src: ['/loop-minor.mp3']
 });
 function playIntro() {
   if (soundEnabled.value) {
@@ -51,37 +50,31 @@ function playLoop() {
   }
 }
 
-
 function engageContent() {
   videoLoaded.value = true;
-  console.log('engaging');
   setTimeout(() => {
       wbc.value?.classList.add('active');
       playIntro();
   }, 150);
   setTimeout(() => {
       wbc.value?.classList.add('glow');
-      tlBracket.value?.classList.add('active');
-      brBracket.value?.classList.add('active');
   }, 500);
   setTimeout(() => {
       wbc.value?.classList.remove('glow');
-      tlBracket.value?.classList.add('blink');
-      brBracket.value?.classList.add('blink');
       wt.value?.classList.add('blink');
+      brackets.value?.classList.add('blink');
   }, 1500);
   setTimeout(() => {
       cubesVideoContainer.value?.classList.add('hide');
       wt.value?.classList.add('active');
+      brackets.value?.classList.add('active');
   }, 2000);
   setTimeout(() => {
       wt.value?.classList.remove('active');
-      tlBracket.value?.classList.remove('active');
-      brBracket.value?.classList.remove('active');
+      brackets.value?.classList.remove('active');
   }, 3400);
   setTimeout(() => {
       showCubeVideo.value = false;
-      console.log('engaged');
       emits('sequenceDone');
       playLoop();
   }, 4200);
@@ -91,8 +84,8 @@ function engageContent() {
 <style scoped>
 
 #welcomeBoxContainer {
-  width: 324px;
-  height: 405px;
+  width: var(--user-width);
+  height: var(--user-height);
   background-color: var(--bg-primary);
   border: 2px solid var(--accent-primary);
   position: absolute;
@@ -105,6 +98,10 @@ function engageContent() {
 
 #welcomeBoxContainer.active {
   transform: scale(1);
+}
+
+#welcomeBoxContainer.mini {
+  height: 300px;
 }
 
 #welcomeBoxContainer.glow {
@@ -151,16 +148,22 @@ function engageContent() {
   display: none;
 }
 
-.bracket {
+#brackets {
   opacity: 0;
   transition: all cubic-bezier(0.18, 0.82, 0.5, 1) .4s;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: scale(.8);
+  z-index: -1;
 }
 
-.bracket.active {
+#brackets.active {
   opacity: 1;
+  transform: scale(1);
 }
 
-.bracket.blink {
+#brackets.blink {
   animation: bangblink 1s linear;
 }
 
