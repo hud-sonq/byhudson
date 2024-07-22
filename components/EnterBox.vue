@@ -1,22 +1,13 @@
 <template>
     <div class="enter-box-main-container">
-        <div class="buttons-and-text-container" id="soundSelector" v-if="!soundSelected">
-            <div class="text">
-                <p>SOUND ENABLED?</p>
-            </div>
-            <div class="buttons-container">
-                <div class="button" @click="$emit('soundDisabled'), soundSelected = !soundSelected"><p>NO</p></div>
-                <div class="button" @click="$emit('soundEnabled'), soundSelected = !soundSelected"><p>YES</p></div>
-            </div>
-        </div>
         <Transition name="reveal">
-            <div class="buttons-and-text-container" id="sizeSelector" v-if="soundSelected">
+            <div class="buttons-and-text-container" id="soundSelector" v-if="!soundSelected">
                 <div class="text">
-                    <p>VISUAL SIZE?</p>
+                    <p>SOUND ENABLED?</p>
                 </div>
                 <div class="buttons-container">
-                    <div class="button" @click="$emit('smaller')"><p>SMALLER</p></div>
-                    <div class="button" @click="$emit('larger')"><p>LARGER</p></div>
+                    <div class="button" @click="$emit('soundDisabled'), soundSelected = !soundSelected"><p>NO</p></div>
+                    <div class="button" @click="$emit('soundEnabled'), soundSelected = !soundSelected"><p>YES</p></div>
                 </div>
             </div>
         </Transition>

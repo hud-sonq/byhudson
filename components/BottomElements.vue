@@ -2,9 +2,6 @@
     <div id="bottomElements">
         <div id="bottomDeco"><img class="uiline-itself" src="/uiline.svg"></div>
         <div class="app-widgets">
-            <!-- <div class="widget">
-                <img class="widget-img-itself" @click="$emit('weatherClicked')" src="/weather.svg">
-            </div> -->
             <div class="widget" @click="$emit('gallClicked')">
                 <img class="widget-img-itself" src="/gallNew.svg">
             </div>
@@ -36,7 +33,6 @@ const navigate = (url: any) => {
     align-items: center;
     z-index: 7;
 }
-
 
 .app-widgets {
     position: absolute;

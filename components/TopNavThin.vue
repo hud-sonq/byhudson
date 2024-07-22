@@ -33,8 +33,6 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
     margin-inline: 4px;
     border-inline: 2px solid var(--accent-primary);
     border-bottom: 2px solid var(--accent-primary);
-    background-color: var(--bg-primary);
-    z-index: 12;
 }
 
 .nav-thirds-split {
@@ -44,6 +42,7 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
     align-items: center;
     height: 100%;
     width: 100%;
+    background-color: var(--bg-primary);
 }
 
 .deco-area {

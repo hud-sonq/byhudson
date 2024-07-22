@@ -3,7 +3,7 @@
         <div class="text-content-container">
             <div class="text-with-ok">
                 <div class="arrow-container" :class="arrowStyle" ref="arrowContainer">
-                    <img src="/arrow1.svg">
+                    <img src="/tut-arrow.svg">
                 </div>
                 <div class="close-x">
                     <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeTut')"/>
@@ -27,7 +27,7 @@ let arrowContainer = ref<HTMLElement | null>(null);
 
 const tutTexts = [
     `YO! I'M HUDSON, I DO STUFF...`,
-    `WEB DEV, SCI-FI ART, MOTION GRAPHICS...`,
+    `WEB DEV, SOUND DESIGN, SCI-FI ART, MOTION GRAPHICS...`,
     `CONTACT ME FOR BUSINESS AT THIS EMAIL!`,
     `MORE STUFF HERE!`,
 ];

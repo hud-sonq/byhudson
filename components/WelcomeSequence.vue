@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import {Howl, Howler} from 'howler';
+import {Howl} from 'howler';
 const emits = defineEmits(['sequenceDone']);
 const videoLoaded = ref(false);
 const showCubeVideo = ref(true);
@@ -36,7 +36,7 @@ const introSound = new Howl({
   src: ['/intro-minor.mp3']
 });
 const loopSound = new Howl({
-  src: ['/loop-minor.mp3']
+  src: ['/loop-major.mp3']
 });
 function playIntro() {
   if (soundEnabled.value) {
