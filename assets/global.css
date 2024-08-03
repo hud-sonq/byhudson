@@ -1,4 +1,5 @@
 :root {
+    /* colors */
     --text-primary: #ffffff;
     --text-secondary: #000000;
     --text-tertiary: #00fff7;
@@ -7,6 +8,10 @@
     --accent-primary: #ffffff;
     --accent-secondary: #00fff7;
     --accent-tertiary: #00d754;
+
+    /* sizes */
+    --user-width: 324px;
+    --user-height: 405px;
 }
 
 html {
@@ -111,4 +116,14 @@ span {
     100% {
         opacity: 0;
     }
+}
+
+.reveal-enter-active,
+.reveal-leave-active {
+    animation: reveal 123ms linear;
+}
+
+.reveal-enter-from,
+.reveal-leave-to {
+    animation: reveal 123ms linear reverse;
 }

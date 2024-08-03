@@ -1,11 +1,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  css: ['~/public/global.css'],
+  css: ['~/assets/global.css'],
   ssr: false,
 
-  nitro: {
-    serveStatic: true,
-  },
+  // nitro: {
+  //   serveStatic: true,
+  // },
 
   compatibilityDate: '2024-07-14'
 })

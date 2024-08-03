@@ -1,20 +1,51 @@
 <template>
     <div id="ppPage">
         <div id="welcomeSequence" ref="welcomeSequence">
-            <WelcomeSequence @sequenceDone="showMain()"/>
+            <WelcomeSequence @sequenceDone="showMain()" @begun="playIntro()"/>
         </div>
         <div id="mainBox" class="" ref="mainBox" >
-            <MainBox />
+            <MainBox @soundClicked="toggleSound()"/>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import {Howl, Howler} from 'howler';
 let welcomeSequence = ref<HTMLElement | null>(null);
 let mainBox = ref<HTMLElement | null>(null);
+const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
+const introSound = new Howl({
+    src: ['/intro-minor.mp3']
+});
+const loopSound = new Howl({
+    src: ['/loop-major.mp3']
+});
+function playIntro() {
+    if (soundEnabled.value) {
+    introSound.play();
+    }
+}
+function playLoop() {
+    if (soundEnabled.value) {
+    loopSound.loop(true);
+    loopSound.play();
+    }
+}
+const volume = ref(1); // Default volume is 1 (max)
+
+const toggleSound = () => {
+    localStorage.setItem('soundEnabled', soundEnabled.value ? 'false' : 'true');
+    volume.value = volume.value === 1 ? 0 : 1;
+    Howler.volume(volume.value);
+};
+
 function showMain() {
     mainBox.value?.classList.add('show');
+    playLoop();
 }
+// move howler here
+
+
 </script>
 
 <style scoped>

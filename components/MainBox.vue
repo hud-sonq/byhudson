@@ -1,19 +1,17 @@
 <template>
     <div class="content-box-container" ref="wbc">
-        <ContentBox @fsClicked="handleFullScreen()"/>
+        <ContentBox @fsClicked="handleFullScreen()" @soundClicked="$emit('soundClicked')"/>
     </div>
 </template>
 
 <script setup lang="ts">
-
+const emits = defineEmits(['soundClicked']);
 let wbc = ref<HTMLElement | null>(null);
-
 function handleFullScreen() {
     if (wbc.value) {
         wbc.value.classList.toggle('fullscreen');
     }
 }
-
 </script>   
 
 <style scoped>

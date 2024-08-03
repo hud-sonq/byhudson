@@ -1,6 +1,6 @@
 <template>
     <div id="contentBoxBoi">
-        <TopNav @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked"/>
+        <TopNav @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked" @soundClicked="$emit('soundClicked')"/>
         <div ref="thinNavRoot" id="thinNavRoot" v-if="inFullscreen">
             <TopNavThin @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked"/>
         </div>
@@ -28,7 +28,7 @@ const showTutorial = ref(true);
 const inFullscreen = ref(false);
 const showInfo = ref(false);
 const thinNavRoot = ref<HTMLElement | null>(null);
-const emits = defineEmits(['fsClicked']);
+const emits = defineEmits(['fsClicked', 'soundClicked']);
 function handleExpandClicked() {
     inFullscreen.value = !inFullscreen.value;
     emits('fsClicked');

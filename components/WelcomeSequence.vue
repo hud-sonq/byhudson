@@ -19,42 +19,20 @@
 </template>
 
 <script setup lang="ts">
-import {Howl} from 'howler';
-const emits = defineEmits(['sequenceDone']);
+const emits = defineEmits(['sequenceDone', 'begun']);
 const videoLoaded = ref(false);
 const showCubeVideo = ref(true);
-
 const cubeVideo = ref<HTMLVideoElement | null>(null);
 const wbc = ref<HTMLElement | null>(null);
 const cubesVideoContainer = ref<HTMLElement | null>(null);
 const wt = ref<HTMLElement | null>(null);
 const brackets = ref<HTMLElement | null>(null);
 
-const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
-
-const introSound = new Howl({
-  src: ['/intro-minor.mp3']
-});
-const loopSound = new Howl({
-  src: ['/loop-major.mp3']
-});
-function playIntro() {
-  if (soundEnabled.value) {
-    introSound.play();
-  }
-}
-function playLoop() {
-  if (soundEnabled.value) {
-    loopSound.loop(true);
-    loopSound.play();
-  }
-}
-
 function engageContent() {
   videoLoaded.value = true;
+  emits('begun');
   setTimeout(() => {
       wbc.value?.classList.add('active');
-      playIntro();
   }, 150);
   setTimeout(() => {
       wbc.value?.classList.add('glow');
@@ -76,7 +54,6 @@ function engageContent() {
   setTimeout(() => {
       showCubeVideo.value = false;
       emits('sequenceDone');
-      playLoop();
   }, 4200);
 }
 </script>

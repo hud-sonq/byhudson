@@ -23,7 +23,7 @@
     object-fit: contain;
     height: 54px;
     width: 54px;
-    box-shadow: -4px 4px var(--accent-primary);
+    box-shadow: -4px 4px var(--accent-tertiary);
 }
 
 .pfp-itself {

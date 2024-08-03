@@ -2,12 +2,12 @@
 
 ## - sound sprites site clicks
 
-## - background pad enable / disable button
+## - mute button
 
-## - in addition to enableSound setup, size setup
+## - size buttons when in fullscreen
 
-## - projects section
+## - do a projects section
 
-## - more in about me
+## - do an about me section
 
-## - more ui elements
+## - more ui elements and deco

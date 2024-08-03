@@ -1,9 +1,13 @@
 <template>
     <div id="navContainer">
-        <div class="nav-thirds-split">
+        <div class="nav-split">
             <div class="deco-area">
                 <div class="deco-container" @click="$emit('infoClicked')">
                     <img src="/info.svg" class="info-itself">
+                </div>
+                <div class="deco-container" @click="toggleSound">
+                    <img v-if="soundEnabled" src="/sound-on.svg" class="sound-itself">
+                    <img v-else src="/sound-off.svg" class="sound-itself">
                 </div>
             </div>
             <div class="deco-area">
@@ -21,13 +25,24 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watch } from 'vue';
 
-const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
+const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked', 'soundClicked']);
+const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
 
+function toggleSound() {
+    soundEnabled.value = !soundEnabled.value;
+    localStorage.setItem('soundEnabled', soundEnabled.value.toString());
+    emits('soundClicked', soundEnabled.value);
+}
+
+// Watch for changes in soundEnabled and update the local storage
+watch(soundEnabled, (newValue) => {
+    localStorage.setItem('soundEnabled', newValue.toString());
+});
 </script>
 
 <style scoped>
-
 #navContainer {
     position: absolute;
     top: -24px;
@@ -39,11 +54,11 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
     background-color: var(--bg-primary);
 }
 
-.nav-thirds-split {
+.nav-split {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     height: 100%;
     width: 100%;
 }
@@ -88,6 +103,11 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
 .info-itself {
     height: 23px;
     width: 23px;
+}
+
+.sound-itself {
+    height: 23px;
+    width: 20px;
 }
 
 </style>
