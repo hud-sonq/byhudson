@@ -51,6 +51,7 @@ const navigate = (url: any) => {
     top: -16px;;
     right: 0;
     height: 24px;
+    min-width: 113px;
 }
 
 .widget {

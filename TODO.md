@@ -2,8 +2,6 @@
 
 ## - sound sprites site clicks
 
-## - mute button
-
 ## - size buttons when in fullscreen
 
 ## - do a projects section
