@@ -9,3 +9,5 @@
 ## - do an about me section
 
 ## - more ui elements and deco
+
+## - aboveElementsDeco extendable based on element number

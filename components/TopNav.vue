@@ -1,7 +1,7 @@
 <template>
     <div id="navContainer">
-        <div class="nav-split">
-            <div class="deco-area">
+        <div class="some-deco-areas">
+            <div class="deco-area left">
                 <div class="deco-container" @click="$emit('infoClicked')">
                     <img src="/info.svg" class="info-itself">
                 </div>
@@ -10,12 +10,12 @@
                     <img v-else src="/sound-off.svg" class="sound-itself">
                 </div>
             </div>
-            <div class="deco-area">
+            <div class="deco-area middle">
                 <div class="lev">
                     <img src="/levitate.svg" class="levitate-itself">
                 </div>
             </div>
-            <div class="deco-area">
+            <div class="deco-area right">
                 <div class="btn-expand-container" @click="$emit('expandClicked')">
                     <img src="/expandFs.svg" class="btn-expand-itself">
                 </div>
@@ -54,11 +54,11 @@ watch(soundEnabled, (newValue) => {
     background-color: var(--bg-primary);
 }
 
-.nav-split {
+.some-deco-areas {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
     width: 100%;
 }
@@ -71,6 +71,16 @@ watch(soundEnabled, (newValue) => {
     align-items: center;
     margin-right: 2px;
     margin-left: 2px;
+}
+
+.left {
+    position: absolute;
+    left: 0;
+}
+
+.right {
+    position: absolute;
+    right: 0;
 }
 
 .btn-expand-container {
