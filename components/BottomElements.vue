@@ -1,9 +1,15 @@
 <template>
     <div id="bottomElements">
-        <div class="aboveElementsDecoContainer">
-            <div id="aboveElementsDeco">
-                <img class="uiline-itself" src="/longer.svg">
+        <div id="aboveElementsDecoContainer">
+            <div class="above-elements-deco">
+                <img src="/attempter.svg">
             </div>
+            <!-- <div class="above-elements-deco">
+                <img class="uiline-itself short" src="/shorter.svg">
+            </div>
+            <div class="above-elements-deco">
+                <img class="uiline-itself long" src="/longer.svg">
+            </div> -->
         </div>
         <div class="app-widgets">
             <div class="widget" @click="$emit('gallClicked')">
@@ -50,21 +56,15 @@ const navigate = (url: any) => {
     margin-left: auto;
 }
 
-.aboveElementsDecoContainer {
-    position: absolute;
-    top: -30px;
-    right: 0;
-    width: 113px;
-    height: 32px;
+#aboveElementsDecoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
-#aboveElementsDeco {
-    position: absolute;
-    top: -30px;
-    right: 0;
-    max-height: 100%;
-    width: 113px;
-    max-width: 164px;
+.above-elements-deco {
+    width: 128px;
+    height: 72px;
 }
 
 .widget {
@@ -79,11 +79,6 @@ const navigate = (url: any) => {
 }
 
 .linktree-itself{
-    height: 100%;
-    width: 100%;
-}
-
-.uiline-itself {
     height: 100%;
     width: 100%;
 }
