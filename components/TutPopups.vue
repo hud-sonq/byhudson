@@ -26,12 +26,10 @@ const tutComplete = ref(false);
 let arrowContainer = ref<HTMLElement | null>(null);
 
 const sounds = ref<Howl[]>([]);
-onMounted(() => {
-    sounds.value = [
+sounds.value = [
     new Howl({ src: ['/click1.mp3'] }),
     new Howl({ src: ['/click2.mp3'] }),
-    ];
-});
+];
 
 const playRandomSound = () => {
   const randomIndex = Math.floor(Math.random() * sounds.value.length);
