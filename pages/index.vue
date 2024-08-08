@@ -43,9 +43,6 @@ function showMain() {
     mainBox.value?.classList.add('show');
     playLoop();
 }
-// move howler here
-
-
 </script>
 
 <style scoped>

@@ -9,7 +9,7 @@
                     <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeTut')"/>
                 </div>
                 <div class="text-2"><span>{{ currentText }}</span></div>
-                <div class="ok-button-container" @click="moveToNextPosition">
+                <div class="ok-button-container" @click="moveNextAndSpit">
                     <div class="ok-button">
                         <span>{{ okText }}</span>
                     </div>
@@ -20,10 +20,23 @@
 </template>
 
 <script setup lang="ts">
+import { Howl } from 'howler';
 const emit = defineEmits(['closeTut']);
 const tutComplete = ref(false);
-
 let arrowContainer = ref<HTMLElement | null>(null);
+
+const sounds = ref<Howl[]>([]);
+    onMounted(() => {
+  sounds.value = [
+    new Howl({ src: ['click1.mp3'] }),
+    new Howl({ src: ['click2.mp3'] }),
+  ];
+});
+
+const playRandomSound = () => {
+  const randomIndex = Math.floor(Math.random() * sounds.value.length);
+  sounds.value[randomIndex].play();
+};
 
 const tutTexts = [
     `YO! I'M HUDSON, I DO STUFF...`,
@@ -50,13 +63,14 @@ const currentPositionStyle = computed(() => ({
     ...mainBoxPositions[currentPositionIndex.value],
 }));
 
-function moveToNextPosition() {
+function moveNextAndSpit() {
     if (currentTextIndex.value === tutTexts.length - 1) {
         tutComplete.value = true;
     } else {
         currentPositionIndex.value = (currentPositionIndex.value + 1) % mainBoxPositions.length;
         currentTextIndex.value = (currentTextIndex.value + 1) % tutTexts.length;
     }
+    playRandomSound();
 }
 
 const arrowStyle = computed(() => {
