@@ -24,6 +24,7 @@ import { Howl } from 'howler';
 const emit = defineEmits(['closeTut']);
 const tutComplete = ref(false);
 let arrowContainer = ref<HTMLElement | null>(null);
+const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
 
 const sounds = ref<Howl[]>([]);
 sounds.value = [
@@ -32,9 +33,12 @@ sounds.value = [
 ];
 
 const playRandomSound = () => {
-  const randomIndex = Math.floor(Math.random() * sounds.value.length);
-  sounds.value[randomIndex].play();
+    if (soundEnabled.value) {
+        const randomIndex = Math.floor(Math.random() * sounds.value.length);
+        sounds.value[randomIndex].play();
+    }
 };
+
 
 const tutTexts = [
     `YO! I'M HUDSON, I DO STUFF...`,
