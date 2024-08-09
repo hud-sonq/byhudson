@@ -33,7 +33,7 @@ sounds.value = [
 ];
 
 const playRandomSound = () => {
-    if (soundEnabled.value) {
+    if (soundEnabled.value === true) {
         const randomIndex = Math.floor(Math.random() * sounds.value.length);
         sounds.value[randomIndex].play();
     }
