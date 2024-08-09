@@ -24,14 +24,4 @@ function goWithoutSound() {
   showMain.value = true;
   localStorage.setItem('soundEnabled', 'false');
 }
-
-// function goSmaller() {
-//   showMain.value = true;
-// }
-
-// function goLarger() {
-//   document.documentElement.style.setProperty('--user-width', '405px');
-//   document.documentElement.style.setProperty('--user-height', '505px');
-//   showMain.value = true;
-// }
 </script>

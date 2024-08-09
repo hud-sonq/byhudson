@@ -22,7 +22,7 @@ function handleCanPlayThrough() {
 
 <style scoped>
 .video-itself {
-  width: var(--user-width);
-  height: var(--user-height);
+  width: var(--sauceBox-width);
+  height: var(--sauceBox-height);
 }
 </style>

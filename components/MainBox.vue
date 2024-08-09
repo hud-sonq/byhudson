@@ -17,8 +17,8 @@ function handleFullScreen() {
 <style scoped>
 
 .content-box-container {
-    width: var(--user-width);
-    height: var(--user-height);
+    width: var(--sauceBox-width);
+    height: var(--sauceBox-height);
     background-color: var(--bg-primary);
     border: 2px solid var(--accent-primary);
     position: absolute;

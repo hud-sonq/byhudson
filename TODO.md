@@ -1,10 +1,12 @@
-# - TODO
+# TODO (descending priority)
 
-## - sound sprites site clicks (PARTIALLY COMPLETE)
+## - global css vars for A - G, and applied
+
+## - buttons to scale the above vars a bit, for accessibility 
 
 ## - Pinia state for some things (soundEnabled, for one)
 
-## - size buttons when in fullscreen
+## - 3js pad visualizer, click visualizer (this one could be mp4, bg vid as imagined)
 
 ## - do a projects section
 

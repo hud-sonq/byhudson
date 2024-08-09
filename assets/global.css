@@ -1,5 +1,8 @@
 :root {
-    /* colors */
+    /* This site currently styles toward mobile and 13inch users */
+    /* Scaling options, as part of ux, will be implemented soon */
+
+    /* COLORS */
     --text-primary: #ffffff;
     --text-secondary: #000000;
     --text-tertiary: #00fff7;
@@ -9,9 +12,34 @@
     --accent-secondary: #00fff7;
     --accent-tertiary: #00d754;
 
-    /* sizes */
-    --user-width: 324px;
-    --user-height: 405px;
+    /* SIZES */
+    /* - navBar (width 100% of sauceBox) and contents */
+    --navbar-width: 100%;
+    --navbar-height: 20px;
+    --navbarMini-width: 96px;
+    --navbarMini-height: 20px;
+    /* --navbarClickable-width: */
+    /* --navbarClickable-height: */
+
+    /*sauceBox (goes to 100% on fs) and contents */
+    --sauceBox-width: 324px;
+    --sauceBox-height: 405px;
+    /* --pfp-width: */
+    /* --pfp-height: */
+    /* --mailZone-width: */
+    /* --mailZone-height: */
+    /* --tutPopups-width: */
+    /* --tutPopups-height: */
+    /* --globeDeco-width: */
+    /* --globeDeco-height: */
+    /* --appSc-width: */
+    /* --appSc-height: */
+    /* --photoGallery-width: */
+    /* --photoGallery-height: */
+
+    /* misc */
+    /* genericIconButton-width */
+    /* genericIconButton-height */
 }
 
 html {
