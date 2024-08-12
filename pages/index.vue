@@ -4,40 +4,59 @@
             <WelcomeSequence @sequenceDone="showMain()" @begun="playIntro()"/>
         </div>
         <div id="mainBox" class="" ref="mainBox" >
-            <MainBox @soundClicked="toggleSound()"/>
+            <MainBox @soundClicked="toggleSound()" @nextTutText="playAClickSound()"/>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import {Howl, Howler} from 'howler';
+
+const clickSounds = ref<Howl[]>([]);
+clickSounds.value = [
+    new Howl({ src: ['/click1.mp3'] }),
+    new Howl({ src: ['/click2.mp3'] }),
+];
+
+const playAClickSound = () => {
+    if (soundEnabled.value === true) {
+        const randomIndex = Math.floor(Math.random() * clickSounds.value.length);
+        clickSounds.value[randomIndex].play();
+    }
+};
+
 let welcomeSequence = ref<HTMLElement | null>(null);
 let mainBox = ref<HTMLElement | null>(null);
 const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
+
 const introSound = new Howl({
-    src: ['/intro-minor.mp3']
+    src: ['/intro-minor.mp3'],
+    volume: 1
 });
 const loopSound = new Howl({
-    src: ['/loop-major.mp3']
+    src: ['/loop-major.mp3'],
+    volume: 1
 });
+
 function playIntro() {
-    if (soundEnabled.value) {
+    Howler.mute(!soundEnabled.value);
     introSound.play();
-    }
 }
 function playLoop() {
-    if (soundEnabled.value) {
+    Howler.mute(!soundEnabled.value);
     loopSound.loop(true);
     loopSound.play();
-    }
 }
-const volume = ref(1); // Default volume is 1 (max)
 
 const toggleSound = () => {
-    localStorage.setItem('soundEnabled', soundEnabled.value ? 'false' : 'true');
-    volume.value = volume.value === 1 ? 0 : 1;
-    Howler.volume(volume.value);
+    soundEnabled.value = !soundEnabled.value;
+    localStorage.setItem('soundEnabled', soundEnabled.value.toString());
+    Howler.mute(!soundEnabled.value);
 };
+
+watch(soundEnabled, (newValue) => {
+    Howler.mute(!newValue);
+});
 
 function showMain() {
     mainBox.value?.classList.add('show');

@@ -1,11 +1,11 @@
 <template>
     <div class="content-box-container" ref="wbc">
-        <ContentBox @fsClicked="handleFullScreen()" @soundClicked="$emit('soundClicked')"/>
+        <ContentBox @fsClicked="handleFullScreen()" @soundClicked="$emit('soundClicked')" @nextTutText="$emit('nextTutText')"/>
     </div>
 </template>
 
 <script setup lang="ts">
-const emits = defineEmits(['soundClicked']);
+const emits = defineEmits(['soundClicked', 'nextTutText']);
 let wbc = ref<HTMLElement | null>(null);
 function handleFullScreen() {
     if (wbc.value) {

@@ -16,6 +16,7 @@
                 </div>
             </div>
             <div class="deco-area right">
+                <ZoomButton />
                 <div class="btn-expand-container" @click="$emit('expandClicked')">
                     <img src="/expandFs.svg" class="btn-expand-itself">
                 </div>
@@ -36,7 +37,6 @@ function toggleSound() {
     emits('soundClicked', soundEnabled.value);
 }
 
-// Watch for changes in soundEnabled and update the local storage
 watch(soundEnabled, (newValue) => {
     localStorage.setItem('soundEnabled', newValue.toString());
 });
@@ -47,8 +47,8 @@ watch(soundEnabled, (newValue) => {
     position: absolute;
     top: -24px;
     left: -6px;
-    width: 100%;
-    height: 20px;
+    width: var(--navbar-width);
+    height: var(--navbar-height);
     margin-inline: 4px;
     border: 2px solid white;
     background-color: var(--bg-primary);

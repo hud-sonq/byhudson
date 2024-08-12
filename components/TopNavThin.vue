@@ -1,5 +1,5 @@
 <template>
-    <div id="navContainer">
+    <div id="navContainerThin">
         <div class="nav-thirds-split">
             <div class="deco-area">
                 <div class="deco-container" @click="$emit('infoClicked')">
@@ -22,17 +22,18 @@
 
 <script setup lang="ts">
 const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
-
 </script>
 
 <style scoped>
 
-#navContainer {
+#navContainerThin {
     width: 96px;
     height: 20px;
     margin-inline: 4px;
     border-inline: 2px solid var(--accent-primary);
     border-bottom: 2px solid var(--accent-primary);
+    background: var(--bg-primary);
+    z-index: 5;
 }
 
 .nav-thirds-split {

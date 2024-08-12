@@ -6,10 +6,10 @@
                     <img src="/tut-arrow.svg">
                 </div>
                 <div class="close-x">
-                    <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeTut')"/>
+                    <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emits('closeTut')"/>
                 </div>
                 <div class="text-2"><span>{{ currentText }}</span></div>
-                <div class="ok-button-container" @click="moveNextAndHowl">
+                <div class="ok-button-container" @click="nextText">
                     <div class="ok-button">
                         <span>{{ okText }}</span>
                     </div>
@@ -20,25 +20,9 @@
 </template>
 
 <script setup lang="ts">
-import { Howl } from 'howler';
-const emit = defineEmits(['closeTut']);
+const emits = defineEmits(['closeTut', 'nextText']);
 const tutComplete = ref(false);
 let arrowContainer = ref<HTMLElement | null>(null);
-const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
-
-const sounds = ref<Howl[]>([]);
-sounds.value = [
-    new Howl({ src: ['/click1.mp3'] }),
-    new Howl({ src: ['/click2.mp3'] }),
-];
-
-const playRandomSound = () => {
-    if (soundEnabled.value === true) {
-        const randomIndex = Math.floor(Math.random() * sounds.value.length);
-        sounds.value[randomIndex].play();
-    }
-};
-
 
 const tutTexts = [
     `YO! I'M HUDSON, I DO STUFF...`,
@@ -57,16 +41,14 @@ const mainBoxPositions = [
     { top: '80px', left: 'auto', right: '24px', bottom: 'auto' },
     { top: 'auto', left: 'auto', right: '8px', bottom: '90px' },
 ];
-
-
 let currentPositionIndex = ref(0);
 
 const currentPositionStyle = computed(() => ({
     ...mainBoxPositions[currentPositionIndex.value],
 }));
 
-function moveNextAndHowl() {
-    playRandomSound();
+function nextText() {
+    emits('nextText');
     if (currentTextIndex.value === tutTexts.length - 1) {
         tutComplete.value = true;
     } else {
@@ -178,5 +160,4 @@ const arrowStyle = computed(() => {
 .ok-button:hover {
     background-color: var(--accent-tertiary);
 }
-
 </style>

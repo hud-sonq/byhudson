@@ -20,7 +20,7 @@
   right: 0;
   width: fit-content;
   height: fit-content;
-  z-index: 6;
+  z-index: 4;
   top: 8px;
   right: 10px;
   height: 54px;

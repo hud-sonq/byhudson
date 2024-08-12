@@ -7,7 +7,7 @@
         <TopElements />
         <MidMail />
         <Transition name="reveal">
-            <TutPopups v-if="showTutorial" @closeTut="showTutorial = !showTutorial"/>
+            <TutPopups v-if="showTutorial" @closeTut="showTutorial = !showTutorial" @nextText="$emit('nextTutText')"/>
         </Transition>
         <GlobeDeco />
         <BottomElements @gallClicked="showGallery = !showGallery"/>
@@ -28,7 +28,7 @@ const showTutorial = ref(true);
 const inFullscreen = ref(false);
 const showInfo = ref(false);
 const thinNavRoot = ref<HTMLElement | null>(null);
-const emits = defineEmits(['fsClicked', 'soundClicked']);
+const emits = defineEmits(['fsClicked', 'soundClicked', 'nextTutText']);
 function handleExpandClicked() {
     inFullscreen.value = !inFullscreen.value;
     emits('fsClicked');
