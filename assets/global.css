@@ -1,7 +1,4 @@
 :root {
-    /* This site currently styles toward mobile and 13inch users */
-    /* Scaling options, as part of ux, will be implemented soon */
-
     /* COLORS */
     --text-primary: #ffffff;
     --text-secondary: #000000;
@@ -18,14 +15,13 @@
     --navbar-height: 20px;
     --navbarMini-width: 96px;
     --navbarMini-height: 20px;
-    /* --navbarClickable-width: 24px*/
-    /* --navbarClickable-height: */
-
+    --navbarClickable-width: 24px;
+    --navbarClickable-height: 24px;
     /*sauceBox (goes to 100% on fs) and contents */
     --sauceBox-width: 324px;
     --sauceBox-height: 405px;
-    /* --pfp-width: */
-    /* --pfp-height: */
+    --pfp-width: 64px;
+    --pfp-height: 64px;
     /* --mailZone-width: */
     /* --mailZone-height: */
     /* --tutPopups-width: */
@@ -36,7 +32,6 @@
     /* --appSc-height: */
     /* --photoGallery-width: */
     /* --photoGallery-height: */
-
     /* misc */
     /* genericIconButton-width */
     /* genericIconButton-height */
