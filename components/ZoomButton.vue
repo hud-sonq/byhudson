@@ -15,8 +15,8 @@ const isZoomed = ref(false);
 const toggleZoom = () => {
   isZoomed.value = !isZoomed.value;
   if (isZoomed.value) {
-    document.documentElement.style.setProperty('--sauceBox-width', '486px'); // 324px * 1.5
-    document.documentElement.style.setProperty('--sauceBox-height', '607.5px'); // 405px * 1.5
+    document.documentElement.style.setProperty('--sauceBox-width', '486px');
+    document.documentElement.style.setProperty('--sauceBox-height', '580px');
   } else {
     document.documentElement.style.setProperty('--sauceBox-width', '324px');
     document.documentElement.style.setProperty('--sauceBox-height', '405px');
@@ -38,7 +38,7 @@ const toggleZoom = () => {
   height: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1440px) {
   #zoomButton {
       display: none;
   }

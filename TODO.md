@@ -2,16 +2,14 @@
 
 ## - global css vars for A - G, and applied
 
-## - buttons to scale the above vars a bit, for accessibility 
+## - normalize icons (kinda falls into above)
 
-## - 3js pad visualizer, click visualizer (this one could be mp4, bg vid as imagined)
+## - make sizing + scaling look good and make FS do zoom in
 
 ## - do a projects section
 
 ## - do an about me section
 
-## - more ui elements and deco
+## - 3js pad visualizer, click visualizer (this one could be mp4, bg vid as imagined)
 
-## - image sizes in gallery should be higher / adaptable
-
-## - all icons especially nav ones should be standardized to fit their canvases and synergize well
+## - trailer with play button in center

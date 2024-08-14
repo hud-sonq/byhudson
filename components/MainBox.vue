@@ -15,7 +15,6 @@ function handleFullScreen() {
 </script>   
 
 <style scoped>
-
 .content-box-container {
     width: var(--sauceBox-width);
     height: var(--sauceBox-height);
@@ -34,5 +33,4 @@ function handleFullScreen() {
     border: none;
     box-shadow: none;
 }
-
 </style>
