@@ -30,7 +30,7 @@ let mainBox = ref<HTMLElement | null>(null);
 const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
 
 const introSound = new Howl({
-    src: ['/intro-minor.mp3'],
+    src: ['/intro.mp3'],
     volume: 1
 });
 const loopSound = new Howl({
