@@ -3,22 +3,22 @@
         <div class="some-deco-areas">
             <div class="deco-area left">
                 <div class="deco-container" @click="$emit('infoClicked')">
-                    <img src="/info.svg" class="info-itself">
+                    <img src="/std/info.svg" class="icon-itself">
                 </div>
                 <div class="deco-container" @click="toggleSound">
-                    <img v-if="soundEnabled" src="/sound-on.svg" class="sound-itself">
-                    <img v-else src="/sound-off.svg" class="sound-itself">
+                    <img v-if="soundEnabled" src="/std/soundOn.svg" class="sound-itself">
+                    <img v-else src="/std/soundOff.svg" class="icon-itself">
                 </div>
             </div>
             <div class="deco-area middle">
                 <div class="lev">
-                    <img src="/levitate.svg" class="levitate-itself">
+                    <img src="/std/levitate.svg" class="icon-itself">
                 </div>
             </div>
             <div class="deco-area right">
                 <ZoomButton />
                 <div class="btn-expand-container" @click="$emit('expandClicked')">
-                    <img src="/expandFs.svg" class="btn-expand-itself">
+                    <img src="/std/expandFs.svg" class="icon-itself">
                 </div>
             </div>
         </div>
@@ -99,25 +99,25 @@ watch(soundEnabled, (newValue) => {
     width: 20px;
 }
 
-.levitate-itself {
-    height: 21px;
-    width: 16px;
-}
-
 .deco-container {
     cursor: pointer;
     height: 22px;
     width: 20px;
 }
 
+.icon-itself {
+    height: 100%;
+    width: 100%;
+}
+/* 
 .info-itself {
-    height: 23px;
-    width: 23px;
+    height: 100%;
+    width: 100%;
 }
 
 .sound-itself {
     height: 23px;
     width: 20px;
-}
+} */
 
 </style>
