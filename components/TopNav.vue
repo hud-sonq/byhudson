@@ -6,7 +6,7 @@
                     <img src="/std/info.svg" class="icon-itself">
                 </div>
                 <div class="deco-container" @click="toggleSound">
-                    <img v-if="soundEnabled" src="/std/soundOn.svg" class="sound-itself">
+                    <img v-if="soundEnabled" src="/std/soundOn.svg" class="icon-itself">
                     <img v-else src="/std/soundOff.svg" class="icon-itself">
                 </div>
             </div>
@@ -17,7 +17,7 @@
             </div>
             <div class="deco-area right">
                 <ZoomButton />
-                <div class="btn-expand-container" @click="$emit('expandClicked')">
+                <div class="deco-container" @click="$emit('expandClicked')">
                     <img src="/std/expandFs.svg" class="icon-itself">
                 </div>
             </div>
@@ -83,17 +83,6 @@ watch(soundEnabled, (newValue) => {
     right: 0;
 }
 
-.btn-expand-container {
-    height: 16px;
-    width: 16px;
-    cursor: pointer;
-}
-
-.btn-expand-itself {
-    height: 100%;
-    width: 100%;
-}
-
 .lev {
     height: 21px;
     width: 20px;
@@ -101,8 +90,8 @@ watch(soundEnabled, (newValue) => {
 
 .deco-container {
     cursor: pointer;
-    height: 22px;
-    width: 20px;
+    width: var(--iconSmall-sq);
+    height: var(--iconSmall-sq);
 }
 
 .icon-itself {

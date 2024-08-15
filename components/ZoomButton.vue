@@ -1,8 +1,8 @@
 <template>
   <div id="zoomButton">
       <div class="zoom-button-img-container">
-          <img src="/phZoomIn.svg" v-if="!isZoomed" alt="zoom in" class="zoom-button-img-itself" @click="toggleZoom">
-          <img src="/phZoomOut.svg" v-else alt="zoom out" class="zoom-button-img-itself" @click="toggleZoom">
+          <img src="/std/zoomIn.svg" v-if="!isZoomed" alt="zoom in" class="icon-itself" @click="toggleZoom">
+          <img src="/std/zoomOut.svg" v-else alt="zoom out" class="icon-itself" @click="toggleZoom">
       </div>
   </div>
 </template>
@@ -41,14 +41,13 @@ watchEffect(() => {
   
 <style scoped>
 #zoomButton {
-  width: 20px;
-  height: 20px;
-  margin-inline: 4px;      
+  width: var(--iconSmall-sq);
+  height: var(--iconSmall-sq);     
   cursor: pointer;
   background: none;
 }
 
-.zoom-button-img-itself {
+.icon-itself {
   width: 100%;
   height: 100%;
 }
