@@ -10,31 +10,34 @@
     --accent-tertiary: #00d754;
 
     /* SIZES */
-    /* - navBar (width 100% of sauceBox) and contents */
+    --pfp-sq: 54px;
+    --iconSmall-sq: 24px;
+    --iconLarge-sq: 40px;
+
+    --spanSize: 13px;
+
     --navbar-width: 100%;
     --navbar-height: 20px;
     --navbarMini-width: 96px;
     --navbarMini-height: 20px;
-    --navbarClickable-width: 24px;
-    --navbarClickable-height: 24px;
-    /*sauceBox (goes to 100% on fs) and contents */
+
     --sauceBox-width: 324px;
     --sauceBox-height: 405px;
-    --pfp-width: 64px;
-    --pfp-height: 64px;
-    /* --mailZone-width: */
-    /* --mailZone-height: */
-    /* --tutPopups-width: */
-    /* --tutPopups-height: */
+
+    --mailZone-width: 216px;
+    --mailZone-height: 54px;
+
+    --tutPopups-width: 200px;
+    --tutPopups-height: 200px;
+
+    --bottomElementsHeight: 54px;
+    --uiLineBottomAmnt: 100px;
+
     /* --globeDeco-width: */
     /* --globeDeco-height: */
-    /* --appSc-width: */
-    /* --appSc-height: */
+
     /* --photoGallery-width: */
     /* --photoGallery-height: */
-    /* misc */
-    /* genericIconButton-width */
-    /* genericIconButton-height */
 }
 
 html {
@@ -122,7 +125,7 @@ p {
 
 span {
     font-family: ROG;
-    font-size: 13px;
+    font-size: var(--spanSize);
     color: #ffffff;
 }
 

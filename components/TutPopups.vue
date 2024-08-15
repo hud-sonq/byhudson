@@ -41,10 +41,24 @@ const mainBoxPositions = [
     { top: '80px', left: 'auto', right: '24px', bottom: 'auto' },
     { top: 'auto', left: 'auto', right: '8px', bottom: '90px' },
 ];
+
+const mainBoxPositionsZoomed = [
+    { top: '125px', left: '10px', right: 'auto', bottom: 'auto' },
+    { top: '115px', left: '10px', right: 'auto', bottom: 'auto' },
+    { top: '115px', left: 'auto', right: '120px', bottom: 'auto' },
+    { top: 'auto', left: 'auto', right: '10px', bottom: '115px' },
+];
+
 let currentPositionIndex = ref(0);
 
+const isZoomed = ref(localStorage.getItem('isZoomed') === 'true');
+
+const currentBoxPositions = computed(() => {
+    return isZoomed.value ? mainBoxPositionsZoomed : mainBoxPositions;
+});
+
 const currentPositionStyle = computed(() => ({
-    ...mainBoxPositions[currentPositionIndex.value],
+    ...currentBoxPositions.value[currentPositionIndex.value],
 }));
 
 function nextText() {
@@ -65,6 +79,11 @@ const arrowStyle = computed(() => {
     }
 });
 
+window.addEventListener('storage', (event) => {
+    if (event.key === 'isZoomed') {
+        isZoomed.value = event.newValue === 'true';
+    }
+});
 </script>
 
 <style scoped>
@@ -72,6 +91,8 @@ const arrowStyle = computed(() => {
 #tutPopups {
     position: absolute;
     z-index: 9;
+    width: var(--tutBox-width);
+    height: var(--tutBox-height);
 }
 
 .text-content-container {

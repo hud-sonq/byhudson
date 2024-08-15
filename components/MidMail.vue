@@ -18,12 +18,11 @@
 #midMail {
   position: absolute;
   right: 0;
-  width: fit-content;
-  height: fit-content;
   z-index: 4;
   top: 8px;
   right: 10px;
-  height: 54px;
+  width: var(--mailZone-width);
+  height: var(--mailZone-height);
 }
 
 .mid-mail-container {
@@ -39,8 +38,6 @@
 }
 
 .mid-mail-img-container {
-  height: fit-content;
-  width: fit-content;
   cursor: pointer;
 }
 

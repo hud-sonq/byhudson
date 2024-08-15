@@ -24,4 +24,8 @@ function goWithoutSound() {
   showMain.value = true;
   localStorage.setItem('soundEnabled', 'false');
 }
+
+onMounted(() => {
+  localStorage.setItem('isZoomed', 'false');
+});
 </script>

@@ -4,14 +4,8 @@
             <div class="above-elements-deco">
                 <img src="/attempter.svg">
             </div>
-            <!-- <div class="above-elements-deco">
-                <img class="uiline-itself short" src="/shorter.svg">
-            </div>
-            <div class="above-elements-deco">
-                <img class="uiline-itself long" src="/longer.svg">
-            </div> -->
         </div>
-        <div class="app-widgets">
+        <div class="app-widgets-container">
             <div class="widget" @click="$emit('gallClicked')">
                 <img class="widget-img-itself" src="/gallNew.svg">
             </div>
@@ -35,16 +29,15 @@ const navigate = (url: any) => {
     position: absolute; 
     bottom: 0;
     left: 0;
-    height: 48px;
     width: 100%;
+    height: var(--bottomElementsHeight);
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
     z-index: 7;
 }
 
-.app-widgets {
+.app-widgets-container {
     position: absolute;
     right: 0;
     height: 100%;
@@ -54,31 +47,30 @@ const navigate = (url: any) => {
     justify-content: center;
     align-items: center;
     margin-left: auto;
+    gap: 16px;
 }
 
 #aboveElementsDecoContainer {
+    position: absolute;
+    right: 0;
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
 .above-elements-deco {
+    position: absolute;
+    bottom: 0;
     width: 128px;
-    height: 72px;
 }
 
 .widget {
-    height: 38px;
-    width: 50px;
+    height: var(--iconLarge-sq);
+    width: var(--iconLarge-sq);
     cursor: pointer;
 }
 
 .widget-img-itself{
-    height: 100%;
-    width: 100%;
-}
-
-.linktree-itself{
     height: 100%;
     width: 100%;
 }

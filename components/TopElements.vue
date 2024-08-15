@@ -11,7 +11,7 @@
     position: absolute; 
     top: 0;
     left: 0;
-    height: 72px;
+    height: fit-content;
     width: 100%;
 }
 
@@ -21,13 +21,13 @@
     left: 12px;
     border: 2px solid var(--accent-primary);
     object-fit: contain;
-    height: 54px;
-    width: 54px;
+    height: var(--pfp-sq);
+    width: var(--pfp-sq);
     box-shadow: -4px 4px var(--accent-tertiary);
 }
 
 .pfp-itself {
-    width: 54px;
-    height: 54px;
+    width: var(--pfp-sq);
+    height: var(--pfp-sq);
 }
 </style>
