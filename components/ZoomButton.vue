@@ -22,7 +22,9 @@ const toggleZoom = () => {
     document.documentElement.style.setProperty('--mailZone-width', '324px');
     document.documentElement.style.setProperty('--mailZone-height', '81px');
     document.documentElement.style.setProperty('--spanSize', '20px');
-    document.documentElement.style.setProperty('--iconLarge-sq', '50px');
+    document.documentElement.style.setProperty('--iconLarge-sq', '64px');
+    document.documentElement.style.setProperty('--globe-itself-sq', '145px');
+
   } else {
     document.documentElement.style.setProperty('--sauceBox-width', '324px');
     document.documentElement.style.setProperty('--sauceBox-height', '405px');
@@ -31,6 +33,7 @@ const toggleZoom = () => {
     document.documentElement.style.setProperty('--mailZone-height', '54px');
     document.documentElement.style.setProperty('--spanSize', '13px');
     document.documentElement.style.setProperty('--iconLarge-sq', '40px');
+    document.documentElement.style.setProperty('--globe-itself-sq', '90px');
   }
 };
 

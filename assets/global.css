@@ -30,11 +30,17 @@
     --tutPopups-width: 200px;
     --tutPopups-height: 200px;
 
-    --bottomElementsHeight: 54px;
-    --uiLineBottomAmnt: 100px;
+    --bottomAbove-width: 100%;
+    --bottomAbove-height: 32px;
 
-    /* --globeDeco-width: */
-    /* --globeDeco-height: */
+    --bottomElementsDoubleContainer-width: 124px;
+    --bottomElementsDoubleContainer-height: 162px;
+
+    --bottomElements-container-width: 62px;
+    --bottomElements-container-height: 62px;
+    --bottomElement-height-sq: 54px;
+
+    --globe-itself-sq: 90px;
 
     /* --photoGallery-width: */
     /* --photoGallery-height: */

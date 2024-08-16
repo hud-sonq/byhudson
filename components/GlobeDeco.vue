@@ -14,7 +14,7 @@
 }
 
 .globe-itself {
-    width: 50%;
-    height: 100%;
+    width: var(--globe-itself-sq);
+    height: var(--globe-itself-sq);
 }
 </style>

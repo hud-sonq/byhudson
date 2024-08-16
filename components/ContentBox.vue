@@ -10,7 +10,7 @@
             <TutPopups v-if="showTutorial" @closeTut="showTutorial = !showTutorial" @nextText="$emit('nextTutText')"/>
         </Transition>
         <GlobeDeco />
-        <BottomElements @gallClicked="showGallery = !showGallery"/>
+        <BottomElementsNew @gallClicked="showGallery = !showGallery"/>
         <Transition name="reveal">
             <GraphicsGallery v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="props"/>
         </Transition>

@@ -45,8 +45,8 @@ watch(soundEnabled, (newValue) => {
 <style scoped>
 #navContainer {
     position: absolute;
-    top: -24px;
     left: -6px;
+    top: -24px;
     width: var(--navbar-width);
     height: var(--navbar-height);
     margin-inline: 4px;
