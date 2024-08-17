@@ -13,3 +13,5 @@
 ## - 3js pad visualizer, click visualizer (this one could be mp4, bg vid as imagined)
 
 ## - trailer with play button in center
+
+## - rainbows should be a part

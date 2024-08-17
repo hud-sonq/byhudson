@@ -1,4 +1,5 @@
 :root {
+    
     /* COLORS */
     --text-primary: #ffffff;
     --text-secondary: #000000;
@@ -10,36 +11,27 @@
     --accent-tertiary: #00d754;
 
     /* SIZES */
+    /* TODO: Instead of applying directly, */
+    /* each scaling element switches classes ber two */
     --pfp-sq: 54px;
     --iconSmall-sq: 20px;
     --iconLarge-sq: 40px;
-
     --spanSize: 13px;
-
     --navbar-width: 100%;
     --navbar-height: 24px;
     --navbarMini-width: 96px;
     --navbarMini-height: 20px;
-
     --sauceBox-width: 324px;
     --sauceBox-height: 405px;
-
     --mailZone-width: 216px;
     --mailZone-height: 54px;
-
     --tutPopups-width: 200px;
     --tutPopups-height: 200px;
-
-    --bottomAbove-width: 100%;
-    --bottomAbove-height: 32px;
-
-    --bottomElementsDoubleContainer-width: 124px;
-    --bottomElementsDoubleContainer-height: 162px;
-
-    --bottomElements-container-width: 62px;
-    --bottomElements-container-height: 62px;
-    --bottomElement-height-sq: 54px;
-
+    --bottomDecoAndElements-width: 130px;
+    --bottomDecoAndElements-height: 78px;
+    --bottomElementsContainer-width: 88px;
+    --bottomElementsContainer-height: 58px;
+    --bottomElementIcon-sq: 40px;
     --globe-itself-sq: 90px;
 
     /* --photoGallery-width: */

@@ -45,12 +45,13 @@ watch(soundEnabled, (newValue) => {
 <style scoped>
 #navContainer {
     position: absolute;
-    left: -6px;
-    top: -24px;
+    left: -2px;
+    top: -28px;
     width: var(--navbar-width);
     height: var(--navbar-height);
-    margin-inline: 4px;
-    border: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
     background-color: var(--bg-primary);
 }
 

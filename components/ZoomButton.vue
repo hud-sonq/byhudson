@@ -12,6 +12,7 @@ import { ref } from 'vue';
 
 const isZoomed = ref(localStorage.getItem('isZoomed') === 'true');
 
+// I WILL REFACTOR THE HORROR BELOW SOON
 const toggleZoom = () => {
   isZoomed.value = !isZoomed.value;
   localStorage.setItem('isZoomed', isZoomed.value.toString());
@@ -24,6 +25,11 @@ const toggleZoom = () => {
     document.documentElement.style.setProperty('--spanSize', '20px');
     document.documentElement.style.setProperty('--iconLarge-sq', '64px');
     document.documentElement.style.setProperty('--globe-itself-sq', '145px');
+    document.documentElement.style.setProperty('--bottomDecoAndElements-width', '195px');
+    document.documentElement.style.setProperty('--bottomDecoAndElements-height', '117px');
+    document.documentElement.style.setProperty('--bottomElementsContainer-width', '132px');
+    document.documentElement.style.setProperty('--bottomElementsContainer-height', '87px');
+    document.documentElement.style.setProperty('--bottomElementIcon-sq', '60px');
 
   } else {
     document.documentElement.style.setProperty('--sauceBox-width', '324px');
@@ -34,6 +40,11 @@ const toggleZoom = () => {
     document.documentElement.style.setProperty('--spanSize', '13px');
     document.documentElement.style.setProperty('--iconLarge-sq', '40px');
     document.documentElement.style.setProperty('--globe-itself-sq', '90px');
+    document.documentElement.style.setProperty('--bottomDecoAndElements-width', '130px');
+    document.documentElement.style.setProperty('--bottomDecoAndElements-height', '78px');
+    document.documentElement.style.setProperty('--bottomElementsContainer-width', '88px');
+    document.documentElement.style.setProperty('--bottomElementsContainer-height', '58px');
+    document.documentElement.style.setProperty('--bottomElementIcon-sq', '40px');
   }
 };
 
