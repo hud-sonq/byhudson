@@ -47,8 +47,8 @@ watch(soundEnabled, (newValue) => {
     position: absolute;
     left: -2px;
     top: -32px;
-    width: var(--navbar-width);
-    height: var(--navbar-height);
+    width: var(--topNav-width);
+    height: var(--topNav-height);
     border-left: 2px solid white;
     border-right: 2px solid white;
     border-top: 2px solid white;

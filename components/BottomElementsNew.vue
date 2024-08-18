@@ -57,6 +57,7 @@ const navigate = (url: any) => {
     width: var(--bottomElementsContainer-width);
     height: var(--bottomElementsContainer-height);
     margin-right: 6px;
+    z-index: 8;
 }
 
 .element {

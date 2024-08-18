@@ -15,18 +15,18 @@
     /* each scaling element switches classes ber two */
     --pfp-sq: 54px;
     --iconSmall-sq: 20px;
-    --iconLarge-sq: 40px;
     --spanSize: 13px;
-    --navbar-width: 100%;
-    --navbar-height: 24px;
-    --navbarMini-width: 96px;
-    --navbarMini-height: 20px;
+    --topNav-width: 100%;
+    --topNav-height: 24px;
+    --topNavMini-width: 96px;
+    --topNavMini-height: 20px;
     --sauceBox-width: 324px;
     --sauceBox-height: 405px;
     --mailZone-width: 216px;
     --mailZone-height: 54px;
     --tutPopups-width: 200px;
-    --tutPopups-height: 200px;
+    --aNextButton-width: 64px;
+    --aNextButton-height: 20px;
     --bottomDecoAndElements-width: 130px;
     --bottomDecoAndElements-height: 78px;
     --bottomElementsContainer-width: 88px;
