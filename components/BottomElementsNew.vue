@@ -64,6 +64,10 @@ const navigate = (url: any) => {
     height: var(--bottomElementIcon-sq);
 }
 
+.element:hover {
+    cursor: pointer;
+}
+
 .element-itself {
     width: 100%;
     height: 100%;

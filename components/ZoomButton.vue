@@ -66,10 +66,10 @@ watchEffect(() => {
   height: 100%;
 }
 
-/* @media (max-width: 1440px) {
+@media (max-width: 1440px) {
   #zoomButton {
       display: none;
   }
-} */
+}
 </style>
   
