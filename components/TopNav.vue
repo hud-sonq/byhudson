@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="deco-area right">
-                <ZoomButton />
+                <ZoomButtonNew />
                 <div class="deco-container" @click="$emit('expandClicked')">
                     <img src="/std/expandFs.svg" class="icon-itself">
                 </div>
@@ -46,12 +46,13 @@ watch(soundEnabled, (newValue) => {
 #navContainer {
     position: absolute;
     left: -2px;
-    top: -28px;
+    top: -32px;
     width: var(--navbar-width);
     height: var(--navbar-height);
     border-left: 2px solid white;
     border-right: 2px solid white;
     border-top: 2px solid white;
+    padding-block: 2px;
     background-color: var(--bg-primary);
 }
 
@@ -82,6 +83,7 @@ watch(soundEnabled, (newValue) => {
 .right {
     position: absolute;
     right: 0;
+    padding-right: 4px;
 }
 
 .lev {

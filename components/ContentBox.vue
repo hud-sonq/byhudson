@@ -7,7 +7,7 @@
         <TopElements />
         <MidMail />
         <Transition name="reveal">
-            <TutPopups v-if="showTutorial" @closeTut="showTutorial = !showTutorial" @nextText="$emit('nextTutText')"/>
+            <TutPopupsNew v-if="showTutorial" @closeTut="showTutorial = !showTutorial" @nextText="$emit('nextTutText')"/>
         </Transition>
         <GlobeDeco />
         <BottomElementsNew @gallClicked="showGallery = !showGallery"/>
