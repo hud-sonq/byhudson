@@ -2,9 +2,7 @@
 
 ## - global css vars for A - G, and applied
 
-## - normalize icons (kinda falls into above)
-
-## - make sizing + scaling look good and make FS do zoom in
+## - if linktree clieked, popup with a confirm
 
 ## - do a projects section
 

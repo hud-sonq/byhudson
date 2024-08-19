@@ -12,7 +12,7 @@
         <GlobeDeco />
         <BottomElementsNew @gallClicked="showGallery = !showGallery"/>
         <Transition name="reveal">
-            <GraphicsGallery v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="props"/>
+            <GraphicsGalleryNew v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="props"/>
         </Transition>
         <Transition name="reveal">
             <div id="infoBoxRoot" v-if="showInfo">

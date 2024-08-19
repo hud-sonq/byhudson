@@ -26,10 +26,10 @@ const zoomStore = useZoomStore();
     height: 100%;
 }
 
-/* @media (max-width: 1440px) {
-#zoomButton {
-    display: none;
+@media (max-width: 1440px) {
+    #zoomButton {
+        display: none;
+    }
 }
-} */
 </style>
   
