@@ -38,5 +38,4 @@ const emits = defineEmits(['closeInfo']);
     align-items: center;
     cursor: pointer;
 }
-
 </style>

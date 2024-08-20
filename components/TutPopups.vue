@@ -27,26 +27,20 @@
 </template>
   
 <script setup lang="ts">
-import { computed, ref } from 'vue';
 import { useZoomStore } from '@/stores/zoomed';
-
 const zoomStore = useZoomStore();
-
 const emits = defineEmits(['closeTut', 'nextText']);
 const tutComplete = ref(false);
 const arrowContainer = ref<HTMLElement | null>(null);
-
 const tutTexts = [
   `YO! I'M HUDSON, I DO STUFF...`,
   `WEB DEV, SOUND DESIGN, SCI-FI ART, MOTION GRAPHICS...`,
   `CONTACT ME FOR BUSINESS AT THIS EMAIL!`,
   `MORE STUFF HERE!`,
 ];
-
 const currentTextIndex = ref(0);
 const currentText = computed(() => tutTexts[currentTextIndex.value]);
 const okText = computed(() => currentTextIndex.value === tutTexts.length - 1 ? 'FINISH' : 'NEXT');
-
 const currentPositionIndex = ref(0);
 
 const arrowStyle = computed(() => {
@@ -64,7 +58,6 @@ function nextText() {
 }
 
 const emitCloseTut = () => emits('closeTut');
-
 </script>
 
 <style scoped>

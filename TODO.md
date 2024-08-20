@@ -4,7 +4,9 @@
 
 ## - graphics gallery with expand option
 
-## - resize all graphics to 864x1080
+## -  change small gallery pic resolutions to 1.5x
+
+## - add inspect button to gallery (whole of saucebox)
 
 ## - if linktree clieked, popup with a confirm to take you there
 

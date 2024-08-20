@@ -13,7 +13,6 @@
   </div>
 </template>
 
-
 <style scoped>
 #midMail {
   position: absolute;

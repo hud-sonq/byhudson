@@ -17,11 +17,9 @@
 <script setup lang="ts">
 const emits = defineEmits(['soundEnabled', 'soundDisabled', 'smaller', 'larger']);
 const soundSelected = ref(false);
-
 </script>
 
 <style scoped>
-
 .enter-box-main-container {
     display: flex;
     justify-content: center;
@@ -64,5 +62,4 @@ const soundSelected = ref(false);
 .button:hover {
     background-color: var(--accent-tertiary);
 }
-
 </style>

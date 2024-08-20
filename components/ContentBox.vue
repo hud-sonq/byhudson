@@ -2,17 +2,17 @@
     <div id="contentBoxBoi">
         <TopNav @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked" @soundClicked="$emit('soundClicked')"/>
         <div ref="thinNavRoot" id="thinNavRoot" v-if="inFullscreen">
-            <TopNavThin @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked"/>
+            <TopNavMini @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked"/>
         </div>
         <TopElements />
         <MidMail />
         <Transition name="reveal">
-            <TutPopupsNew v-if="showTutorial" @closeTut="showTutorial = !showTutorial" @nextText="$emit('nextTutText')"/>
+            <TutPopups v-if="showTutorial" @closeTut="showTutorial = !showTutorial" @nextText="$emit('nextTutText')"/>
         </Transition>
         <GlobeDeco />
-        <BottomElementsNew @gallClicked="showGallery = !showGallery"/>
+        <BottomElements @gallClicked="showGallery = !showGallery"/>
         <Transition name="reveal">
-            <GraphicsGalleryNew v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="props"/>
+            <GraphicsGallery v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="props"/>
         </Transition>
         <Transition name="reveal">
             <div id="infoBoxRoot" v-if="showInfo">
@@ -29,6 +29,7 @@ const inFullscreen = ref(false);
 const showInfo = ref(false);
 const thinNavRoot = ref<HTMLElement | null>(null);
 const emits = defineEmits(['fsClicked', 'soundClicked', 'nextTutText']);
+
 function handleExpandClicked() {
     inFullscreen.value = !inFullscreen.value;
     emits('fsClicked');

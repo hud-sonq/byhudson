@@ -26,8 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-
 const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked', 'soundClicked']);
 const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
 
@@ -101,15 +99,4 @@ watch(soundEnabled, (newValue) => {
     height: 100%;
     width: 100%;
 }
-/* 
-.info-itself {
-    height: 100%;
-    width: 100%;
-}
-
-.sound-itself {
-    height: 23px;
-    width: 20px;
-} */
-
 </style>

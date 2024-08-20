@@ -63,7 +63,6 @@ function prevImage() {
 </script>
 
 <style scoped>
-
 span {
     font-size: 10px;
 }
