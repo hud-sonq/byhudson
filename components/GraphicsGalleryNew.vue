@@ -1,17 +1,26 @@
 <template>
-    <div id="gGalleryContainer">
-        <div v-if="loading" class="loading-icon">Loading...</div>
-            <!-- Image display -->
-            <div v-if="!loading" class="gallery">
-                <img
-                    :src="picz[currentIndex]"
-                    :alt="`Image ${currentIndex + 1}`"
-                    @load="onImageLoad"
-                />
-                <button @click="photoLeft">[</button>
-                <button @click="photoRight">]</button>
-            </div>
-    </div>
+  <div id="gGalleryContainer">
+      <div class="graphics-gallery-items">
+          <div class="top-label-area">
+              <div class="image-titel"><span>{{ currentImage }}</span></div>
+              <div class="close-x">
+                  <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeClicked')"/>
+              </div>
+          </div>
+          <div class="arrow left" @click="prevImage">
+              <span>[</span>
+          </div>
+          <div class="arrow right" @click="nextImage">
+              <span>]</span>
+          </div>
+          <div class="gallery-picz-container">
+              <div v-if="loading" class="loading-icon">Loading...</div>
+              <div v-if="!loading">
+                <img :src="picz[currentIndex]" @load="onImageLoad" class="gallery-pic-itself"/>
+              </div>
+          </div>
+      </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -20,8 +29,8 @@ const props = defineProps<{
   picz: any[];
 }>()
 const loading = ref(false);
-const currentImage = ref(props.picz[0]);
 const currentIndex = ref(0);
+const currentImage = ref(props.picz[0]);
 
 function loadImage(index: number) {
   loading.value = true;
@@ -33,13 +42,13 @@ function loadImage(index: number) {
 }
 
 function onImageLoad() {
-  // Ensure loading is hidden when the image is fully loaded
   loading.value = false;
 }
 
 function nextImage() {
   if (currentIndex.value < props.picz.length - 1) {
     currentIndex.value++;
+    currentImage.value = props.picz[currentIndex.value];
     loadImage(currentIndex.value);
   }
 }
@@ -47,26 +56,9 @@ function nextImage() {
 function prevImage() {
   if (currentIndex.value > 0) {
     currentIndex.value--;
+    currentImage.value = props.picz[currentIndex.value];
     loadImage(currentIndex.value);
   }
-}
-
-const photoLeft = () => {
-    const currentIndex = props.picz.indexOf(currentImage.value);
-    if (currentIndex === 0) {
-        currentImage.value = props.picz[props.picz.length - 1];
-    } else {
-        currentImage.value = props.picz[currentIndex - 1];
-    }
-}
-
-const photoRight = () => {
-    const currentIndex = props.picz.indexOf(currentImage.value);
-    if (currentIndex === props.picz.length - 1) {
-        currentImage.value = props.picz[0];
-    } else {
-        currentImage.value = props.picz[currentIndex + 1];
-    }
 }
 </script>
 
@@ -83,6 +75,88 @@ span {
     justify-content: center;
     align-items: center;
     position: absolute;
-    z-index: 15;
+    pointer-events: none;
+    z-index: 11;
+}
+
+.graphics-gallery-items {
+    position: absolute;
+    width: 166px;
+    height: 218px;
+    border: 2px solid var(--accent-primary);
+    pointer-events: all;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-primary);
+    box-shadow: -4px 4px var(--accent-primary);
+}
+
+.top-label-area {
+    background-color: var(--bg-primary);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 18px;
+    border-bottom: 2px solid var(--accent-primary);
+    z-index: 7;
+    padding-bottom: 2px;
+    user-select: none;
+}
+
+.arrow {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--accent-primary);
+    background-color: var(--bg-primary);
+    cursor: pointer;
+    user-select: none;
+}
+
+.right {right: -34px;}
+
+.left {left: -38px;}
+
+.arrow:active {
+    background-color: var(--accent-tertiary);
+}
+
+.close-x {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.gallery-picz-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: calc(100% - 18px);
+    object-fit: cover;
+}
+
+.gallery-pic-itself {
+    width: calc(100% + 6px);
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .gallery-pic-itself {
+        width: 100%;
+    }
 }
 </style>

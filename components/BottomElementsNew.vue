@@ -22,7 +22,6 @@ const navigate = (url: any) => {
 </script>
 
 <style scoped>
-
 #bottomDecoAndElements {
     position: absolute; 
     bottom: 4px;

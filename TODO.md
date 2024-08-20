@@ -2,14 +2,18 @@
 
 ## - global css vars for A - G, and applied
 
-## - if linktree clieked, popup with a confirm
+## - graphics gallery with expand option
+
+## - resize all graphics to 864x1080
+
+## - if linktree clieked, popup with a confirm to take you there
 
 ## - do a projects section
 
 ## - do an about me section
 
-## - 3js pad visualizer, click visualizer (this one could be mp4, bg vid as imagined)
-
 ## - trailer with play button in center
 
-## - rainbows should be a part
+## - sound visualization as I see fit
+
+## - rainbows
