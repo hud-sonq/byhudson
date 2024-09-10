@@ -5,10 +5,7 @@
                 <div class="deco-container" @click="$emit('infoClicked')">
                     <img src="/std/info.svg" class="icon-itself">
                 </div>
-                <div class="deco-container" @click="toggleSound">
-                    <img v-if="soundEnabled" src="/std/soundOn.svg" class="icon-itself">
-                    <img v-else src="/std/soundOff.svg" class="icon-itself">
-                </div>
+                <SoundButton />
             </div>
             <div class="deco-area middle">
                 <div class="lev">
@@ -17,7 +14,7 @@
             </div>
             <div class="deco-area right">
                 <ZoomButtonNew />
-                <div class="deco-container" @click="$emit('expandClicked')">
+                <div class="deco-container" @click="$emit('expandClicked'), zoomStore.toggleZoom">
                     <img src="/std/expandFs.svg" class="icon-itself">
                 </div>
             </div>
@@ -26,18 +23,11 @@
 </template>
 
 <script setup lang="ts">
+import {useZoomStore} from '@/stores/zoomed';
+import {useSoundStore} from '@/stores/sound';
+const zoomStore = useZoomStore();
+const soundStore = useSoundStore();
 const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked', 'soundClicked']);
-const soundEnabled = ref(localStorage.getItem('soundEnabled') === 'true');
-
-function toggleSound() {
-    soundEnabled.value = !soundEnabled.value;
-    localStorage.setItem('soundEnabled', soundEnabled.value.toString());
-    emits('soundClicked', soundEnabled.value);
-}
-
-watch(soundEnabled, (newValue) => {
-    localStorage.setItem('soundEnabled', newValue.toString());
-});
 </script>
 
 <style scoped>

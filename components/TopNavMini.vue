@@ -1,20 +1,15 @@
 <template>
     <div id="navContainerThin">
-        <div class="nav-thirds-split">
-            <div class="deco-area">
-                <div class="deco-container" @click="$emit('infoClicked')">
-                    <img src="/info.svg" class="info-itself">
-                </div>
+        <div class="nav-mini">
+            <div class="deco-area" @click="$emit('infoClicked')">
+                <img src="/std/info.svg" class="deco-itself">
             </div>
+            <SoundButton />
             <div class="deco-area">
-                <div class="lev">
-                    <img src="/levitate.svg" class="levitate-itself">
-                </div>
+                <img src="/std/levitate.svg" class="deco-itself">
             </div>
-            <div class="deco-area">
-                <div class="btn-expand-container" @click="$emit('expandClicked')">
-                    <img src="/std/expandFs.svg" class="btn-expand-itself">
-                </div>
+            <div class="deco-area" @click="$emit('expandClicked')">
+                <img src="/std/expandFs.svg" class="deco-itself">
             </div>
         </div>
     </div>
@@ -27,16 +22,43 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
 <style scoped>
 
 #navContainerThin {
-    width: 96px;
-    height: 20px;
+    width: var(--topNavMini-width);
+    height: var(--topNavMini-height);
     margin-inline: 4px;
     border-inline: 2px solid var(--accent-primary);
     border-bottom: 2px solid var(--accent-primary);
     background: var(--bg-primary);
     z-index: 5;
+    padding-right: 4px;
 }
 
-.nav-thirds-split {
+.nav-mini {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deco-area {
+    height: 26px;
+    width: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.deco-itself {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* .nav-thirds-split {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -87,5 +109,6 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
     height: 23px;
     width: 23px;
     padding-right: 4px;
-}
+} */
+
 </style>

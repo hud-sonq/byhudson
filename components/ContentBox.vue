@@ -12,7 +12,7 @@
         <GlobeDeco />
         <BottomElements @gallClicked="showGallery = !showGallery"/>
         <Transition name="reveal">
-            <GraphicsGallery v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="props"/>
+            <GraphicsGallery v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="galleryProps"/>
         </Transition>
         <Transition name="reveal">
             <div id="infoBoxRoot" v-if="showInfo">
@@ -41,18 +41,18 @@ function handleInfoClicked() {
     showInfo.value = !showInfo.value;
 }
 
-const props = {
+const galleryProps = {
     picz: [
-        '/GRAVITRON_1.png', 
-        '/GRAVITRON_2.png', 
-        '/QUICKVIEW_1.png', 
-        '/QUICKVIEW_2.png', 
-        '/RESULTS_1.png', 
-        '/RESULTS-2.png', 
-        '/SPEEDWAY_1.png', 
-        '/SPEEDWAY_2.png', 
-        '/TESTING_1.png', 
-        '/TESTING_2.png',
+        '/GRAVITRON_1.jpg', 
+        '/GRAVITRON_2.jpg',
+        '/QUICKVIEW_1.jpg',
+        '/QUICKVIEW_2.jpg',
+        '/RESULTS_1.jpg',
+        '/RESULTS_2.jpg',
+        '/SPEEDWAY_1.jpg',
+        '/SPEEDWAY_2.jpg',
+        '/TESTING_1.jpg',
+        '/TESTING_2.jpg',
     ]
 }
 </script>
@@ -102,7 +102,7 @@ const props = {
     top: -100vh;
     transition: top .4s cubic-bezier(0.18, 0.82, 0.5, 1);
     width: 100%;
-    height: 20px;
+    height: var(--topNavMini-height);
     display: flex;
     flex-direction: row;
     justify-content: center;

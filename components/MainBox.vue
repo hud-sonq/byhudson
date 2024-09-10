@@ -1,13 +1,17 @@
 <template>
     <div class="content-box-container" ref="wbc">
+        <TheEmphasisBehind/>
         <ContentBox @fsClicked="handleFullScreen()" @soundClicked="$emit('soundClicked')" @nextTutText="$emit('nextTutText')"/>
     </div>
 </template>
 
 <script setup lang="ts">
+import {useZoomStore} from '@/stores/zoomed';
+const zoomStore = useZoomStore();
 const emits = defineEmits(['soundClicked', 'nextTutText']);
 let wbc = ref<HTMLElement | null>(null);
 function handleFullScreen() {
+    zoomStore.toggleZoom();
     if (wbc.value) {
         wbc.value.classList.toggle('fullscreen');
     }

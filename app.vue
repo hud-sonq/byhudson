@@ -10,22 +10,16 @@
 </template>
 
 <script setup lang="ts">
-let showMain = ref(false);
-let soundEnabled = ref(false);
+import { useSoundStore } from '@/stores/sound';
+const soundStore = useSoundStore();
+const showMain = ref(false);
 
 function goWithSound() {
-  soundEnabled.value = true;
+  soundStore.toggleSound();
   showMain.value = true;
-  localStorage.setItem('soundEnabled', 'true');
 }
 
 function goWithoutSound() {
-  soundEnabled.value = false;
   showMain.value = true;
-  localStorage.setItem('soundEnabled', 'false');
 }
-
-onMounted(() => {
-  localStorage.setItem('isZoomed', 'false');
-});
 </script>

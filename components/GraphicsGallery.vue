@@ -25,17 +25,17 @@
 
 <script setup lang="ts">
 const emit = defineEmits(['closeClicked']);
-const props = defineProps<{
+const galleryProps = defineProps<{
   picz: any[];
 }>()
 const loading = ref(false);
 const currentIndex = ref(0);
-const currentImage = ref(props.picz[0]);
+const currentImage = ref(galleryProps.picz[0]);
 
 function loadImage(index: number) {
   loading.value = true;
   const img = new Image();
-  img.src = props.picz[index];
+  img.src = galleryProps.picz[index];
   img.onload = () => {
     loading.value = false;
   };
@@ -46,9 +46,9 @@ function onImageLoad() {
 }
 
 function nextImage() {
-  if (currentIndex.value < props.picz.length - 1) {
+  if (currentIndex.value < galleryProps.picz.length - 1) {
     currentIndex.value++;
-    currentImage.value = props.picz[currentIndex.value];
+    currentImage.value = galleryProps.picz[currentIndex.value];
     loadImage(currentIndex.value);
   }
 }
@@ -56,7 +56,7 @@ function nextImage() {
 function prevImage() {
   if (currentIndex.value > 0) {
     currentIndex.value--;
-    currentImage.value = props.picz[currentIndex.value];
+    currentImage.value = galleryProps.picz[currentIndex.value];
     loadImage(currentIndex.value);
   }
 }
@@ -128,34 +128,34 @@ span {
 }
 
 .close-x {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    top: 2px;
-    right: 2px;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 .gallery-picz-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: calc(100% - 18px);
-    object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: calc(100% - 12px);
+  object-fit: cover;
 }
 
 .gallery-pic-itself {
-    width: calc(100% + 6px);
-    height: 100%;
+  width: calc(100%);
+  height: 100%;
 }
 
 @media (max-width: 768px) {
-    .gallery-pic-itself {
-        width: 100%;
-    }
+  .gallery-pic-itself {
+      width: 100%;
+  }
 }
 </style>

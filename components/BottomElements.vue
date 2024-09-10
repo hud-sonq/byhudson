@@ -7,7 +7,7 @@
             <div class="element" @click="$emit('gallClicked')">
                 <img class="element-itself" src="/gallNew.svg">
             </div>
-            <div class="element" @click="navigate(`https://linktr.ee/hudsonjq`)">
+            <div class="element" @click="confirmNavigation">
                 <img class="element-itself" src="/linktree.svg">
             </div>
         </div>
@@ -19,6 +19,12 @@ const emits = defineEmits(['gallClicked']);
 const navigate = (url: any) => {
   window.open(url, '_blank')
 }
+const confirmNavigation = () => {
+  const confirmation = confirm("Visit 'https://linktr.ee/hudsonjq'?");
+  if (confirmation) {
+    window.open('https://linktr.ee/hudsonjq', '_blank');
+  }
+};
 </script>
 
 <style scoped>
