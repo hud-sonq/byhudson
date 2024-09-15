@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 const eb = ref<HTMLElement | null>(null);
-const opacities = ref([0, 0, 0, 0]); // Opacity values for each bracket
+const opacities = ref([0, 0, 0, 0]);
 onNuxtReady(() => {
     startAnimation();
     if (eb.value) {
@@ -20,32 +20,32 @@ onNuxtReady(() => {
 });
 
 function startAnimation() {
-    const interval = 500; // 500ms between each element's animation
+    const interval = 500;
     opacities.value.forEach((_, index) => {
         setTimeout(() => {
             animateBracket(index);
-        }, interval * index); // Staggered delay for each bracket
+        }, interval * index);
     });
 }
 
 function animateBracket(index: number) {
     const bracket = opacities.value;
-    let direction = 1; // 1 for increasing opacity, -1 for decreasing
-    let opacity = 0; // Initial opacity
+    let direction = 1;
+    let opacity = 0;
 
     const animation = setInterval(() => {
-        opacity += 0.05 * direction; // Adjust step size if needed
+        opacity += 0.05 * direction;
 
         if (opacity >= 1) {
-            direction = -1; // Reverse direction
+            direction = -1;
         }
 
         if (opacity <= 0) {
-            clearInterval(animation); // Stop animation when opacity returns to 0
+            clearInterval(animation);
         }
 
-        bracket[index] = opacity; // Update the opacity of the bracket
-    }, 50); // Speed of the opacity change
+        bracket[index] = opacity;
+    }, 50);
 }
 </script>
 
@@ -75,12 +75,12 @@ function animateBracket(index: number) {
 
 .bracket {
     position: absolute;
-    width: 50px; /* Adjust as needed */
+    width: 50px;
     height: 50px;
     border-left: 2px solid black;
     border-top: 2px solid black;
-    opacity: 0; /* Initially set to invisible */
-    transition: opacity 0.5s ease-in-out; /* Smooth transition of opacity */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* .bracket {
@@ -110,9 +110,6 @@ function animateBracket(index: number) {
     top: calc(-44px - var(--topNav-height)); 
     left: -42px; 
 }
-
-
-
 
 #emphasisBehindContainer.active > #rainbowsContainer {
     animation: pulse 8s ease-in-out infinite;

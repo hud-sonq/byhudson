@@ -16,9 +16,6 @@
 
 <script setup lang="ts">
 const emits = defineEmits(['gallClicked']);
-const navigate = (url: any) => {
-  window.open(url, '_blank')
-}
 const confirmNavigation = () => {
   const confirmation = confirm("Visit 'https://linktr.ee/hudsonjq'?");
   if (confirmation) {

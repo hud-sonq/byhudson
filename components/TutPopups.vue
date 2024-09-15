@@ -6,42 +6,40 @@
           <img src="/tut-arrow.svg" alt="arrow">
         </div>
         <div class="close-x">
-          <img 
-            src="/closebox.svg" 
-            alt="close" 
-            class="close-x-itself" 
-            @click="emitCloseTut"
-          />
+          <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emitCloseTut" />
         </div>
         <div class="text-2">
           <span>{{ currentText }}</span>
         </div>
         <div class="ok-button-container" @click="nextText">
           <div class="ok-button">
-            <span>{{ okText }}</span>
+              <span>{{ okText }}</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-  
+
 <script setup lang="ts">
 import { useZoomStore } from '@/stores/zoomed';
+import { useI18n } from 'vue-i18n';
+
 const zoomStore = useZoomStore();
 const emits = defineEmits(['closeTut', 'nextText']);
 const tutComplete = ref(false);
 const arrowContainer = ref<HTMLElement | null>(null);
-const tutTexts = [
-  `YO! I'M HUDSON, I DO STUFF...`,
-  `WEB DEV, SOUND DESIGN, SCI-FI ART, MOTION GRAPHICS...`,
-  `CONTACT ME FOR BUSINESS AT THIS EMAIL!`,
-  `MORE STUFF HERE!`,
-];
+const { t } = useI18n();
+const tutTextsLength = 4;
 const currentTextIndex = ref(0);
-const currentText = computed(() => tutTexts[currentTextIndex.value]);
-const okText = computed(() => currentTextIndex.value === tutTexts.length - 1 ? 'FINISH' : 'NEXT');
 const currentPositionIndex = ref(0);
+
+const currentText = computed(() => t(`tutTexts.${currentTextIndex.value}`));
+
+const okText = computed(() => currentTextIndex.value === tutTextsLength - 1 ? 'FINISH' : 'NEXT');
+
+
+const emitCloseTut = () => emits('closeTut');
 
 const arrowStyle = computed(() => {
   return currentPositionIndex.value < 3 ? 'tleft' : 'bright';
@@ -49,16 +47,17 @@ const arrowStyle = computed(() => {
 
 function nextText() {
   emits('nextText');
-  if (currentTextIndex.value === tutTexts.length - 1) {
-    tutComplete.value = true;
+  if (currentTextIndex.value === tutTextsLength - 1) {
+      tutComplete.value = true;
   } else {
-    currentPositionIndex.value = (currentPositionIndex.value + 1) % 4;
-    currentTextIndex.value = (currentTextIndex.value + 1) % tutTexts.length;
+      currentPositionIndex.value = (currentPositionIndex.value + 1) % 4;
+      currentTextIndex.value = (currentTextIndex.value + 1) % tutTextsLength;
   }
 }
 
-const emitCloseTut = () => emits('closeTut');
 </script>
+
+  
 
 <style scoped>
 #tutPopups {
@@ -165,4 +164,3 @@ const emitCloseTut = () => emits('closeTut');
   background-color: var(--accent-tertiary);
 }
 </style>
-  

@@ -20,7 +20,6 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
 </script>
 
 <style scoped>
-
 #navContainerThin {
     width: var(--topNavMini-width);
     height: var(--topNavMini-height);
@@ -55,60 +54,4 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked']);
     width: 100%;
     height: 100%;
 }
-
-
-
-/* .nav-thirds-split {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background-color: var(--bg-primary);
-}
-
-.deco-area {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.btn-expand-container {
-    height: 16px;
-    width: 16px;
-    cursor: pointer;
-    margin-right: 4px;
-}
-
-.btn-expand-itself {
-    height: 100%;
-    width: 100%;
-}
-
-.levitate-itself {
-    height: 21px;
-    width: 16px;
-    margin-left: 2px;
-}
-
-.deco-container {
-    cursor: pointer;
-    height: 22px;
-    width: 20px;
-}
-
-.lev {
-    height: 20px;
-    width: 20px;
-}
-
-.info-itself {
-    height: 23px;
-    width: 23px;
-    padding-right: 4px;
-} */
-
 </style>

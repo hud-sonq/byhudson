@@ -26,7 +26,7 @@ const zoomStore = useZoomStore();
     height: 100%;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 750px) {
     #zoomButton {
         display: none;
     }

@@ -6,6 +6,7 @@
                     <img src="/std/info.svg" class="icon-itself">
                 </div>
                 <SoundButton />
+                <LanguageSwitcher />
             </div>
             <div class="deco-area middle">
                 <div class="lev">
@@ -26,7 +27,6 @@
 import {useZoomStore} from '@/stores/zoomed';
 import {useSoundStore} from '@/stores/sound';
 const zoomStore = useZoomStore();
-const soundStore = useSoundStore();
 const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked', 'soundClicked']);
 </script>
 
