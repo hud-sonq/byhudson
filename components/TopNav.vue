@@ -2,30 +2,25 @@
     <div id="navContainer">
         <div class="some-deco-areas">
             <div class="deco-area left">
+                <div class="deco-container expand-fs" @click="$emit('expandClicked'), zoomStore.toggleZoom">
+                    <img src="/std/expandFs.svg" class="icon-itself">
+                </div>
+                <img src="/std/levitate.svg" class="lev">
+                <ZoomButtonNew />
+            </div>
+            <div class="deco-area right">
                 <div class="deco-container" @click="$emit('infoClicked')">
                     <img src="/std/info.svg" class="icon-itself">
                 </div>
                 <SoundButton />
                 <LanguageSwitcher />
-            </div>
-            <div class="deco-area middle">
-                <div class="lev">
-                    <img src="/std/levitate.svg" class="icon-itself">
-                </div>
-            </div>
-            <div class="deco-area right">
-                <ZoomButtonNew />
-                <div class="deco-container" @click="$emit('expandClicked'), zoomStore.toggleZoom">
-                    <img src="/std/expandFs.svg" class="icon-itself">
-                </div>
-            </div>
+            </div> 
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import {useZoomStore} from '@/stores/zoomed';
-import {useSoundStore} from '@/stores/sound';
 const zoomStore = useZoomStore();
 const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked', 'soundClicked']);
 </script>
@@ -34,7 +29,7 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked', 's
 #navContainer {
     position: absolute;
     left: -2px;
-    top: -32px;
+    top: -44px;
     width: var(--topNav-width);
     height: var(--topNav-height);
     border-left: 2px solid white;
@@ -59,24 +54,28 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked', 's
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 2px;
-    margin-left: 2px;
+    margin-right: 4px;
+    margin-left: 4px;
 }
 
 .left {
     position: absolute;
     left: 0;
+    gap: 8px;
+    padding-left: 4px;
 }
 
 .right {
     position: absolute;
     right: 0;
     padding-right: 4px;
+    gap: 6px;
 }
 
 .lev {
-    height: 21px;
-    width: 20px;
+    display: none;
+    height: var(--iconSmall-sq);
+    width: var(--iconSmall-sq);
 }
 
 .deco-container {
@@ -88,5 +87,20 @@ const emits = defineEmits(['expandClicked', 'infoClicked', 'levitateClicked', 's
 .icon-itself {
     height: 100%;
     width: 100%;
+}
+
+@media (max-width: 750px) {
+    #navContainer {
+        top: auto;
+        bottom: -44px;
+        border-bottom: 2px solid white;
+        border-top: none;
+    }
+    .expand-fs {
+        display: none;
+    }
+    .lev {
+        display: block;
+    }
 }
 </style>

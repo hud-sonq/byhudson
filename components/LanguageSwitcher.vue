@@ -1,6 +1,6 @@
 <template>
-  <div id="languageSwitcher">
-    <div class="language-img-container" @click="cycleLocale">
+  <div id="languageSwitcher" @click="cycleLocale">
+    <div class="language-img-container">
       <img src="/std/language.svg" class="icon-itself">
     </div>
     <img :src="`/std/${currentLocale.code}.svg`" :alt="currentLocale.name" class="flag-icon">
@@ -54,6 +54,6 @@ function cycleLocale() {
   width: var(--iconSmall-sq);
   height: var(--iconSmall-sq);
   display: inline-block;
-  cursor: default;
+  cursor: pointer;
 }
 </style>

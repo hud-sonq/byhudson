@@ -1,5 +1,6 @@
 <template>
     <div id="contentBoxBoi">
+        <GraphicViewer v-if="showBigGraphic" @closeClicked="showBigGraphic = !showBigGraphic" v-bind="bigGraphicImg"/>
         <TopNav @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked" @soundClicked="$emit('soundClicked')"/>
         <div ref="thinNavRoot" id="thinNavRoot" v-if="inFullscreen">
             <TopNavMini @expandClicked="handleExpandClicked" @infoClicked="handleInfoClicked"/>
@@ -12,7 +13,7 @@
         <GlobeDeco />
         <BottomElements @gallClicked="showGallery = !showGallery"/>
         <Transition name="reveal">
-            <GraphicsGallery v-if="showGallery" @closeClicked="showGallery = !showGallery" v-bind="galleryProps"/>
+            <GraphicsGallery v-if="showGallery" @closeClicked="showGallery = !showGallery" @viewClicked="viewGraphic" v-bind="galleryProps"/>
         </Transition>
         <Transition name="reveal">
             <div id="infoBoxRoot" v-if="showInfo">
@@ -24,11 +25,19 @@
 
 <script setup lang="ts">
 const showGallery = ref(false);
+const showBigGraphic = ref(false);
+const bigGraphicImg = ref({src: '', alt: ''});
 const showTutorial = ref(true);
 const inFullscreen = ref(false);
 const showInfo = ref(false);
 const thinNavRoot = ref<HTMLElement | null>(null);
 const emits = defineEmits(['fsClicked', 'soundClicked', 'nextTutText']);
+
+const viewGraphic = (src: string, alt: string) => {
+    console.log('viewing graphic', src);
+    bigGraphicImg.value = {src, alt};
+    showBigGraphic.value = true;
+}
 
 function handleExpandClicked() {
     inFullscreen.value = !inFullscreen.value;
