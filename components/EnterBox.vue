@@ -2,20 +2,30 @@
     <div class="enter-box-main-container">
         <Transition name="reveal">
             <div class="buttons-and-text-container" id="soundSelector" v-if="!soundSelected">
+                <LanguageSwitcher />
                 <div class="text">
-                    <p>SOUND ENABLED?</p>
+                    <p>{{ t('soundPrompt') }}</p>
                 </div>
                 <div class="buttons-container">
-                    <div class="button" @click="$emit('soundDisabled'), soundSelected = !soundSelected"><p>NO</p></div>
-                    <div class="button" @click="$emit('soundEnabled'), soundSelected = !soundSelected"><p>YES</p></div>
+                    <div class="button" @click="$emit('soundDisabled'), soundSelected = !soundSelected">
+                        <p>{{ t('no') }}</p>
+                    </div>
+                    <div class="button" @click="$emit('soundEnabled'), soundSelected = !soundSelected">
+                        <p>{{ t('yes') }}</p>
+                    </div>
                 </div>
-                <TheEmphasisBehind style="width: 250px; height: 150px;"/>
+                <TheEmphasisBehind style="width: 250px; height: 150px;" />
             </div>
         </Transition>
     </div>
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+// Get access to the i18n instance
+const { t } = useI18n();
+
 const emits = defineEmits(['soundEnabled', 'soundDisabled', 'smaller', 'larger']);
 const soundSelected = ref(false);
 </script>

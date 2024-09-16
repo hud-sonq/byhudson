@@ -12,6 +12,10 @@ export default defineI18nConfig(() => ({
             ],
             next: 'NEXT',
             finish: 'FINISH',
+            soundPrompt: 'SOUND ENABLED?',
+            yes: 'YES',
+            no: 'NO',
+            welcome: 'WELCOME'
         },
         ja: {
             tutTexts: [
@@ -22,6 +26,10 @@ export default defineI18nConfig(() => ({
             ],
             next: '次へ',
             finish: '完了',
+            soundPrompt: 'サウンドを有効にしますか？',
+            yes: 'はい',
+            no: 'いいえ',
+            welcome: 'ようこそ'
         },
         kr: {
             tutTexts: [
@@ -32,6 +40,24 @@ export default defineI18nConfig(() => ({
             ],
             next: '다음',
             finish: '완료',
+            soundPrompt: '사운드 활성화?',
+            yes: '예',
+            no: '아니요',
+            welcome: '환영합니다'
+        },
+        cn: {
+            tutTexts: [
+                `YO！我是哈德森，我做一些事情……`,
+                `网页开发，声音设计，科幻艺术，动态图形……`,
+                `联系我进行商业合作，邮箱如下！`,
+                `这里有更多内容！`
+            ],
+            next: '下一步',
+            finish: '完成',
+            soundPrompt: '启用声音？',
+            yes: '是',
+            no: '否',
+            welcome: '欢迎'
         },
         fr: {
             tutTexts: [
@@ -42,6 +68,10 @@ export default defineI18nConfig(() => ({
             ],
             next: 'SUIVANT',
             finish: 'FIN',
+            soundPrompt: 'SON ACTIVÉ ?',
+            yes: 'OUI',
+            no: 'NON',
+            welcome: 'BIENVENUE'
         },
         es: {
             tutTexts: [
@@ -52,6 +82,10 @@ export default defineI18nConfig(() => ({
             ],
             next: 'SIGUIENTE',
             finish: 'FIN',
+            soundPrompt: '¿SONIDO ACTIVADO?',
+            yes: 'SÍ',
+            no: 'NO',
+            welcome: 'BIENVENIDO'
         },
         de: {
             tutTexts: [
@@ -62,6 +96,10 @@ export default defineI18nConfig(() => ({
             ],
             next: 'NÄCHSTER',
             finish: 'ABSCHLUSS',
-        }
+            soundPrompt: 'SOUND AKTIVIERT?',
+            yes: 'JA',
+            no: 'NEIN',
+            welcome: 'WILLKOMMEN'
+        },
     }
 }));

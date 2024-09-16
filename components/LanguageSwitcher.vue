@@ -15,6 +15,7 @@ const locales = [
   { code: 'en', name: 'English' },
   { code: 'ja', name: '日本語' },
   { code: 'kr', name: '한글' },
+  { code: 'cn', name: '中文' },
   { code: 'fr', name: 'Français' },
   { code: 'es', name: 'Español' },
   { code: 'de', name: 'Deutsch' },

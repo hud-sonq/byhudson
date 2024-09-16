@@ -12,13 +12,16 @@
               <WelcomeVideo ref="cubeVideo" style="z-index: 10" @loaded="engageContent()"/>
             </div>
             <div class="welcome-text-container">
-                <div id="wt" ref="wt" style="height: fit-content;"><h4>WELCOME</h4></div>
+                <div id="wt" ref="wt" style="height: fit-content;"><h4>{{ t('welcome') }}</h4></div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 const emits = defineEmits(['sequenceDone', 'begun']);
 const videoLoaded = ref(false);
 const showCubeVideo = ref(true);
