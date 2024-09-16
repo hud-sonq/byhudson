@@ -17,6 +17,7 @@ onNuxtReady(() => {
         console.log('ephasis behind not found');
     }
 });
+
 </script>
 
 <style scoped>
@@ -83,6 +84,7 @@ onNuxtReady(() => {
     }
     50% {
         padding: 20%;
+        padding-bottom: 120px;
     }
     100% {
         padding: 0;

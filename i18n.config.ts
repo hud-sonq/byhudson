@@ -9,7 +9,9 @@ export default defineI18nConfig(() => ({
                 `WEB DEV, SOUND DESIGN, SCI-FI ART, MOTION GRAPHICS...`,
                 `CONTACT ME FOR BUSINESS AT THIS EMAIL!`,
                 `MORE STUFF HERE!`
-            ]
+            ],
+            next: 'NEXT',
+            finish: 'FINISH',
         },
         ja: {
             tutTexts: [
@@ -17,7 +19,9 @@ export default defineI18nConfig(() => ({
                 `WEB開発、サウンドデザイン、SFアート、モーショングラフィックス...`,
                 `ビジネスのお問い合わせはこちらのメールで！`,
                 `もっとここで見ることができます！`
-            ]
+            ],
+            next: '次へ',
+            finish: '完了',
         },
         kr: {
             tutTexts: [
@@ -25,7 +29,9 @@ export default defineI18nConfig(() => ({
                 `웹 개발, 소리 디자인은, 사이언스 픽션 작품, 모션 그래픽스 ...`,
                 `C제 비즈니스 이메일은 다음과 같습니다!'`,
                 `더 많은 것이 여기 있습니다!`
-            ]
+            ],
+            next: '다음',
+            finish: '완료',
         },
         fr: {
             tutTexts: [
@@ -33,7 +39,9 @@ export default defineI18nConfig(() => ({
                 `DEV WEB, DESIGN SONORE, ART SCI-FI, MOTION GRAPHICS...`,
                 `CONTACTEZ-MOI POUR AFFAIRES À CET EMAIL !`,
                 `PLUS DE TRUCS ICI !`
-            ]
+            ],
+            next: 'SUIVANT',
+            finish: 'FIN',
         },
         es: {
             tutTexts: [
@@ -41,7 +49,9 @@ export default defineI18nConfig(() => ({
                 `DESARROLLO WEB, DISEÑO DE SONIDO, ARTE DE CIENCIA FICCIÓN, GRÁFICOS EN MOVIMIENTO...`,
                 `¡CONTÁCTAME PARA NEGOCIOS EN ESTE CORREO!`,
                 `¡MÁS COSAS AQUÍ!`
-            ]
+            ],
+            next: 'SIGUIENTE',
+            finish: 'FIN',
         },
         de: {
             tutTexts: [
@@ -49,7 +59,9 @@ export default defineI18nConfig(() => ({
                 `WEB-ENTWICKLUNG, SOUND DESIGN, SCI-FI-KUNST, BEWEGTE GRAFIK...`,
                 `KONTAKTIERE MICH FÜR GESCHÄFTLICHES PER E-MAIL!`,
                 `MEHR SACHEN HIER!`
-            ]
+            ],
+            next: 'NÄCHSTER',
+            finish: 'ABSCHLUSS',
         }
     }
 }));

@@ -29,31 +29,44 @@ const zoomStore = useZoomStore();
 const emits = defineEmits(['closeTut', 'nextText']);
 const tutComplete = ref(false);
 const arrowContainer = ref<HTMLElement | null>(null);
-const { t } = useI18n();
-const tutTextsLength = 4;
+const { t } = useI18n();  // Access to i18n
+
+const tutTextsLength = 4;  // Length of tutorial steps
 const currentTextIndex = ref(0);
 const currentPositionIndex = ref(0);
 
+// Get the current tutorial text
 const currentText = computed(() => t(`tutTexts.${currentTextIndex.value}`));
 
-const okText = computed(() => currentTextIndex.value === tutTextsLength - 1 ? 'FINISH' : 'NEXT');
+// Determine if it's the last step and display the correct button text ("NEXT" or "FINISH")
+const okText = computed(() => {
+  return currentTextIndex.value === tutTextsLength - 1 ? t('finish') : t('next');
+});
 
+// Emit close event
 const emitCloseTut = () => emits('closeTut');
 
+// Determine the style of the arrow based on the current position
 const arrowStyle = computed(() => {
   return currentPositionIndex.value < 3 ? 'tleft' : 'bright';
 });
 
+// Handle moving to the next text
 function nextText() {
   emits('nextText');
   if (currentTextIndex.value === tutTextsLength - 1) {
-      tutComplete.value = true;
+    tutComplete.value = true;  // Tutorial is complete
   } else {
-      currentPositionIndex.value = (currentPositionIndex.value + 1) % 4;
-      currentTextIndex.value = (currentTextIndex.value + 1) % tutTextsLength;
+    currentPositionIndex.value = (currentPositionIndex.value + 1) % 4;  // Cycle through positions
+    currentTextIndex.value = (currentTextIndex.value + 1) % tutTextsLength;  // Cycle through texts
   }
 }
 </script>
+
+<style scoped>
+/* Your existing styles */
+</style>
+
 
 <style scoped>
 #tutPopups {

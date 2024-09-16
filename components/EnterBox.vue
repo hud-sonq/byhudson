@@ -9,6 +9,7 @@
                     <div class="button" @click="$emit('soundDisabled'), soundSelected = !soundSelected"><p>NO</p></div>
                     <div class="button" @click="$emit('soundEnabled'), soundSelected = !soundSelected"><p>YES</p></div>
                 </div>
+                <TheEmphasisBehind style="width: 250px; height: 150px;"/>
             </div>
         </Transition>
     </div>
