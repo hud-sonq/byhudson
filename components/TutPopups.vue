@@ -65,7 +65,6 @@ function nextText() {
   z-index: 9;
   width: var(--tutPopups-width);
   min-width: var(--tutPopups-width);
-  height: fit-content;
   transition: all 0.3s ease;
 }
 
