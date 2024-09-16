@@ -11,42 +11,12 @@
 const eb = ref<HTMLElement | null>(null);
 const opacities = ref([0, 0, 0, 0]);
 onNuxtReady(() => {
-    startAnimation();
     if (eb.value) {
         eb.value.classList.add('active');
     } else {
         console.log('ephasis behind not found');
     }
 });
-
-function startAnimation() {
-    const interval = 500;
-    opacities.value.forEach((_, index) => {
-        setTimeout(() => {
-            animateBracket(index);
-        }, interval * index);
-    });
-}
-
-function animateBracket(index: number) {
-    const bracket = opacities.value;
-    let direction = 1;
-    let opacity = 0;
-
-    const animation = setInterval(() => {
-        opacity += 0.05 * direction;
-
-        if (opacity >= 1) {
-            direction = -1;
-        }
-
-        if (opacity <= 0) {
-            clearInterval(animation);
-        }
-
-        bracket[index] = opacity;
-    }, 50);
-}
 </script>
 
 <style scoped>
@@ -77,19 +47,11 @@ function animateBracket(index: number) {
     position: absolute;
     width: 50px;
     height: 50px;
-    border-left: 2px solid black;
-    border-top: 2px solid black;
-    opacity: 0;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
-
-/* .bracket {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-left: 6px solid white;
-    border-top: 6px solid white;
-} */
 
 .bracket-1 {
     top: calc(-20px - var(--topNav-height));

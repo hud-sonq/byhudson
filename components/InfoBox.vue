@@ -1,7 +1,9 @@
 <template>
     <div id="infoBox">
         <div class="info-box-container">
-            <div class="close-x-container" @click="$emit('closeInfo')"><img src="/closebox.svg" class="close-x-itself"></div>
+            <div class="close-x-container" @click="$emit('closeInfo')">
+                <img src="/closebox.svg" class="close-x-itself">
+            </div>
             <div class="text1"><h4>MAKING THE WEB COOL</h4></div>
         </div>
     </div>
@@ -31,11 +33,16 @@ const emits = defineEmits(['closeInfo']);
     padding: 4px;
     top: 0;
     right: 0;
-    width: 16px;
-    height: 16px;
+    width: var(--iconSmall-sq);
+    height: var(--iconSmall-sq);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.close-x-itself {
+    width: 100%;
+    height: 100%;
 }
 </style>

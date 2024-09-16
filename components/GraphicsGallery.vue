@@ -3,7 +3,15 @@
       <div class="graphics-gallery-items">
           <div class="top-label-area">
               <div class="image-titel"><span>{{ currentImage }}</span></div>
-              <div class="inspector" @click="handleViewClicked">
+              <!-- <div class="inspector" @click="handleViewClicked">
+                  <img src="/std/zoomIn.svg" alt="inspect" class="icon-itself">
+              </div>
+              <div class="close-x">
+                  <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeClicked')"/>
+              </div> -->
+          </div>
+          <div class="side-buttons">
+            <div class="inspector" @click="handleViewClicked">
                   <img src="/std/zoomIn.svg" alt="inspect" class="icon-itself">
               </div>
               <div class="close-x">
@@ -93,12 +101,9 @@ span {
 }
 
 .inspector {
-    position: absolute;
-    right: 22px;
-    top: 2px;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+  cursor: pointer;
+  width: var(--iconSmall-sq);
+  height: var(--iconSmall-sq);
 }
 
 #gGalleryContainer {
@@ -139,14 +144,29 @@ span {
     user-select: none;
 }
 
+.side-buttons {
+  position: absolute;
+  right: -36px;
+  top: -2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 32px;
+  height: 64px;
+  border-block: 2px solid white;
+  border-right: 2px solid white;
+}
+
 .arrow {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
+    width: var(--iconSmall-sq);
+    height: var(--iconSmall-sq);
     padding: 4px;
     border: 2px solid var(--accent-primary);
     background-color: var(--bg-primary);
@@ -154,25 +174,20 @@ span {
     user-select: none;
 }
 
-.right {right: -54px;}
+.right {right: -50px;}
 
-.left {left: -58px;}
+.left {left: -54px;}
 
 .arrow:active {
     background-color: var(--accent-tertiary);
 }
 
 .close-x {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   top: 2px;
   right: 2px;
-  width: 16px;
-  height: 16px;
   cursor: pointer;
+  width: var(--iconSmall-sq);
+  height: var(--iconSmall-sq);
 }
 
 .gallery-picz-container {

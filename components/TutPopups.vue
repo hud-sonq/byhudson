@@ -38,7 +38,6 @@ const currentText = computed(() => t(`tutTexts.${currentTextIndex.value}`));
 
 const okText = computed(() => currentTextIndex.value === tutTextsLength - 1 ? 'FINISH' : 'NEXT');
 
-
 const emitCloseTut = () => emits('closeTut');
 
 const arrowStyle = computed(() => {
@@ -54,10 +53,7 @@ function nextText() {
       currentTextIndex.value = (currentTextIndex.value + 1) % tutTextsLength;
   }
 }
-
 </script>
-
-  
 
 <style scoped>
 #tutPopups {
