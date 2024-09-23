@@ -1,6 +1,6 @@
 <template>
     <div v-if="!videoLoaded">
-        <h4>load...</h4>
+        <h4>{{ t('loading') }}</h4>
     </div>
     <div id="welcomeBoxContainer" ref="wbc">
         <div id="brackets" ref="brackets" class="">
@@ -72,7 +72,7 @@ function engageContent() {
   box-shadow: none;
   -webkit-box-shadow: none; 
   -moz-box-shadow: none; 
-  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.9s;
   transform: scale(0);
 }
 

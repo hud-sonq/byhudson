@@ -1,36 +1,32 @@
 <template>
   <div id="gGalleryContainer">
-      <div class="graphics-gallery-items">
-          <div class="top-label-area">
-              <div class="image-titel"><span>{{ currentImage }}</span></div>
-              <!-- <div class="inspector" @click="handleViewClicked">
-                  <img src="/std/zoomIn.svg" alt="inspect" class="icon-itself">
-              </div>
-              <div class="close-x">
-                  <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeClicked')"/>
-              </div> -->
-          </div>
-          <div class="side-buttons">
-            <div class="inspector" @click="handleViewClicked">
-                  <img src="/std/zoomIn.svg" alt="inspect" class="icon-itself">
-              </div>
-              <div class="close-x">
-                  <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeClicked')"/>
-              </div>
-          </div>
-          <div class="arrow left" @click="prevImage" ref="arrowLeft">
-              <img src="/std/doubleArrow.svg" style="transform: scaleX(-1)">
-          </div>
-          <div class="arrow right" @click="nextImage" ref="arrowRight">
-            <img src="/std/doubleArrow.svg">
-          </div>
-          <div class="gallery-picz-container">
-              <div v-if="loading" class="loading-icon">Loading...</div>
-              <div v-if="!loading">
-                <img :src="picz[currentIndex]" @load="onImageLoad" class="gallery-pic-itself"/>
-              </div>
-          </div>
+    <div class="graphics-gallery-items">
+      <div class="top-label-area">
+        <div class="image-titel"><span>{{ currentImage }}</span></div>
       </div>
+      <div class="side-buttons">
+        <div class="inspector" @click="handleViewClicked">
+          <img src="/std/zoomIn.svg" alt="inspect" class="icon-itself" />
+        </div>
+        <div class="close-x">
+          <img src="/closebox.svg" alt="close" class="close-x-itself" @click="emit('closeClicked')" />
+        </div>
+      </div>
+      <div class="arrow left" @click="prevImage" ref="arrowLeft">
+        <img src="/std/doubleArrow.svg" style="transform: scaleX(-1)" />
+      </div>
+      <div class="arrow right" @click="nextImage" ref="arrowRight">
+        <img src="/std/doubleArrow.svg" />
+      </div>
+      <div class="gallery-picz-container">
+        <div v-if="loading" class="loading-icon">
+          <span>load...</span>
+        </div>
+        <div v-if="!loading">
+          <img :src="picz[currentIndex]" class="gallery-pic-itself" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -44,35 +40,25 @@ const galleryProps = defineProps<{
 const loading = ref(false);
 const currentIndex = ref(0);
 const currentImage = ref(galleryProps.picz[0]);
+let loadingStartTime: number | null = null;
+
 const handleViewClicked = () => emit('viewClicked', currentImage.value);
-// if currentIndex is at start, hide left arrow
-watch(currentIndex, (newIndex) => {
-  if (newIndex === 0) {
-    arrowLeft.value?.classList.add('hidden');
-  } else {
-    arrowLeft.value?.classList.remove('hidden');
-  }
-});
-// if currentIndex is at end, hide right arrow
-watch(currentIndex, (newIndex) => {
-  if (newIndex === galleryProps.picz.length - 1) {
-    arrowRight.value?.classList.add('hidden');
-  } else {
-    arrowRight.value?.classList.remove('hidden');
-  }
-});
 
 function loadImage(index: number) {
   loading.value = true;
+  loadingStartTime = Date.now();
+
   const img = new Image();
   img.src = galleryProps.picz[index];
-  img.onload = () => {
-    loading.value = false;
-  };
-}
 
-function onImageLoad() {
-  loading.value = false;
+  img.onload = () => {
+    const elapsedTime = Date.now() - (loadingStartTime || 0);
+    const remainingTime = Math.max(400 - elapsedTime, 0);
+
+    setTimeout(() => {
+      loading.value = false;
+    }, remainingTime);
+  };
 }
 
 function nextImage() {
@@ -94,10 +80,10 @@ function prevImage() {
 
 <style scoped>
 .hidden {
-    display: none;
+  display: none;
 }
 span {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .inspector {
@@ -107,41 +93,42 @@ span {
 }
 
 #gGalleryContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    pointer-events: none;
-    z-index: 11;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  pointer-events: none;
+  z-index: 11;
 }
 
 .graphics-gallery-items {
-    position: absolute;
-    width: 166px;
-    height: 218px;
-    border: 2px solid var(--accent-primary);
-    pointer-events: all;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-primary);
-    box-shadow: -4px 4px var(--accent-primary);
+  position: absolute;
+  width: var(--photoGallery-width);
+  height: var(--photoGallery-height);
+  border: 2px solid var(--accent-primary);
+  pointer-events: all;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-primary);
+  box-shadow: -4px 4px var(--accent-primary);
+  transition: all ease-in-out 0.5s;
 }
 
 .top-label-area {
-    background-color: var(--bg-primary);
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    height: 18px;
-    border-bottom: 2px solid var(--accent-primary);
-    z-index: 7;
-    padding-bottom: 2px;
-    user-select: none;
+  background-color: var(--bg-primary);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 18px;
+  border-bottom: 2px solid var(--accent-primary);
+  z-index: 7;
+  padding-bottom: 2px;
+  user-select: none;
 }
 
 .side-buttons {
@@ -160,18 +147,18 @@ span {
 }
 
 .arrow {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: var(--iconSmall-sq);
-    height: var(--iconSmall-sq);
-    padding: 4px;
-    border: 2px solid var(--accent-primary);
-    background-color: var(--bg-primary);
-    cursor: pointer;
-    user-select: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--iconSmall-sq);
+  height: var(--iconSmall-sq);
+  padding: 4px;
+  border: 2px solid var(--accent-primary);
+  background-color: var(--bg-primary);
+  cursor: pointer;
+  user-select: none;
 }
 
 .right {right: -50px;}
@@ -179,7 +166,7 @@ span {
 .left {left: -54px;}
 
 .arrow:active {
-    background-color: var(--accent-tertiary);
+  background-color: var(--accent-tertiary);
 }
 
 .close-x {
@@ -195,17 +182,20 @@ span {
   bottom: 0;
   left: 0;
   height: calc(100% - 12px);
+  width: 100%;
   object-fit: cover;
 }
 
 .gallery-pic-itself {
-  width: calc(100%);
+  width: 100%;
   height: 100%;
 }
 
-@media (max-width: 768px) {
-  .gallery-pic-itself {
-      width: 100%;
-  }
+.loading-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

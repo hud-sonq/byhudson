@@ -22,6 +22,7 @@
   right: 10px;
   width: var(--mailZone-width);
   height: var(--mailZone-height);
+  transition: all ease-in-out 0.5s;
 }
 
 .mid-mail-container {

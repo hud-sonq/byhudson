@@ -24,10 +24,12 @@
     height: var(--pfp-sq);
     width: var(--pfp-sq);
     box-shadow: -4px 4px var(--accent-tertiary);
+    transition: all ease-in-out 0.5s;
 }
 
 .pfp-itself {
     width: var(--pfp-sq);
     height: var(--pfp-sq);
+    transition: all ease-in-out 0.5s;
 }
 </style>

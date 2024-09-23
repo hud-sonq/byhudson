@@ -1,9 +1,11 @@
 # TODO
 
-## - add more to the tutpopups (projects, goals etc)
+## - total css refactor (slightly more comprehensive screen size adaptation)
 
 ## - sound visualization as I see fit
 
 ## - trailer with play button in center
 
-## - refactor all redundancy (mostly styles)
+## - refactor to remove redundancy (mostly styles)
+
+## - something fullstack

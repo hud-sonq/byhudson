@@ -16,5 +16,6 @@
 .globe-itself {
     width: var(--globe-itself-sq);
     height: var(--globe-itself-sq);
+    transition: all ease-in-out 0.5s;
 }
 </style>

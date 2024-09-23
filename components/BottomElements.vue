@@ -26,11 +26,12 @@ const confirmNavigation = () => {
 
 <style scoped>
 #bottomDecoAndElements {
-    position: absolute; 
+    position: absolute;
     bottom: 4px;
     right: 0;
     width: var(--bottomDecoAndElements-width);
     height: var(--bottomDecoAndElements-height);
+    transition: all ease-in-out 0.5s;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -60,11 +61,13 @@ const confirmNavigation = () => {
     height: var(--bottomElementsContainer-height);
     margin-right: 6px;
     z-index: 8;
+    transition: all ease-in-out 0.5s;
 }
 
 .element {
     width: var(--bottomElementIcon-sq);
     height: var(--bottomElementIcon-sq);
+    transition: all ease-in-out 0.5s;
 }
 
 .element:hover {

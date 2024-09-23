@@ -14,7 +14,7 @@
                         <p>{{ t('yes') }}</p>
                     </div>
                 </div>
-                <TheEmphasisBehind style="width: 250px; height: 150px;" />
+                <TheEmphasisBehind style="width: 210px; height: 1px;" />
             </div>
         </Transition>
     </div>
@@ -23,7 +23,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 
-// Get access to the i18n instance
 const { t } = useI18n();
 
 const emits = defineEmits(['soundEnabled', 'soundDisabled', 'smaller', 'larger']);

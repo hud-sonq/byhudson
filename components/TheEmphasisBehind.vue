@@ -10,15 +10,32 @@
 <script setup lang="ts">
 const eb = ref<HTMLElement | null>(null);
 const opacities = ref([0, 0, 0, 0]);
+
+function loopOpacityShift() {
+    const brackets = document.querySelectorAll('.bracket');
+    brackets.forEach((bracket, i) => {
+        setTimeout(() => {
+            opacities.value[i] = 1; 
+        }, i * 100);
+        setTimeout(() => {
+            opacities.value[i] = 0;
+        }, 500 + i * 100);
+    });
+    setTimeout(loopOpacityShift, 100 + brackets.length * 400);
+}
+onMounted(() => {
+    loopOpacityShift(); 
+});
+
 onNuxtReady(() => {
     if (eb.value) {
         eb.value.classList.add('active');
     } else {
-        console.log('ephasis behind not found');
+        console.log('emphasis behind not found');
     }
 });
-
 </script>
+
 
 <style scoped>
 #emphasisBehindContainer {
@@ -46,10 +63,10 @@ onNuxtReady(() => {
 
 .bracket {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    border-left: 2px solid white;
-    border-top: 2px solid white;
+    width: 20px;
+    height: 20px;
+    border-left: 4px solid white;
+    border-top: 4px solid white;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
 }
@@ -88,6 +105,12 @@ onNuxtReady(() => {
     }
     100% {
         padding: 0;
+    }
+}
+
+@media (max-width: 750px) {
+    .bracket {
+        margin-top: 36px;
     }
 }
 </style>

@@ -10,8 +10,6 @@
     --accent-tertiary: #00d754;
 
     /* SIZES */
-    /* TODO: Instead of applying directly, */
-    /* each scaling element switches classes ber two */
     --pfp-sq: 54px;
     --iconSmall-sq: 24px;
     --spanSize: 13px;
@@ -33,9 +31,13 @@
     --bottomElementIcon-sq: 40px;
     --globe-itself-sq: 90px;
     --emphasisBehind-pulse: 52px;
+    --photoGallery-width: 166px;
+    --photoGallery-height: 218px;
+}
 
-    /* --photoGallery-width: */
-    /* --photoGallery-height: */
+a {
+    text-decoration: underline;
+    color: var(--accent-tertiary);
 }
 
 html {
@@ -92,36 +94,42 @@ h1 {
     font-family: ROG;
     font-size: 50px;
     color: var(--text-tertiary);
+    transition: all ease-in-out 0.5s;
 }
 
 h2 {
     font-family: ROG;
     font-size: 40px;
     color: #ffffff;
+    transition: all ease-in-out 0.5s;
 }
 
 h3 {
     font-family: ROG;
     font-size: 30px;
     color: #ffffff;
+    transition: all ease-in-out 0.5s;
 }
 
 h4 {
     font-family: ROG;
     font-size: 20px;
     color: #ffffff;
+    transition: all ease-in-out 0.5s;
 }
 
 p {
     font-family: ROG;
     font-size: 20px;
     color: #ffffff;
+    transition: all ease-in-out 0.5s;
 }
 
 span {
     font-family: ROG;
     font-size: var(--spanSize);
     color: #ffffff;
+    transition: all ease-in-out 0.5s;
 }
 
 @keyframes bangblink {
@@ -150,5 +158,5 @@ span {
 }
 
 .element::-webkit-scrollbar {
-    display: none;  /* Hide scrollbar */
+    display: none;
 }

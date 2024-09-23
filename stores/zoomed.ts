@@ -19,6 +19,8 @@ const toggleZoom = () => {
         document.documentElement.style.setProperty('--bottomElementsContainer-height', '87px');
         document.documentElement.style.setProperty('--bottomElementIcon-sq', '60px');
         document.documentElement.style.setProperty('--tutPopups-width', '250px');
+        document.documentElement.style.setProperty('--photoGallery-width', '249px');
+        document.documentElement.style.setProperty('--photoGallery-height', '327px');
     } else {
         document.documentElement.style.setProperty('--sauceBox-width', '324px');
         document.documentElement.style.setProperty('--sauceBox-height', '405px');
@@ -33,6 +35,8 @@ const toggleZoom = () => {
         document.documentElement.style.setProperty('--bottomElementsContainer-height', '58px');
         document.documentElement.style.setProperty('--bottomElementIcon-sq', '40px');
         document.documentElement.style.setProperty('--tutPopups-width', '200px');
+        document.documentElement.style.setProperty('--photoGallery-width', '166px');
+        document.documentElement.style.setProperty('--photoGallery-height', '218px');
     }
 };
 return { isZoomed, toggleZoom };

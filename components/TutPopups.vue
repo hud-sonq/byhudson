@@ -29,44 +29,34 @@ const zoomStore = useZoomStore();
 const emits = defineEmits(['closeTut', 'nextText']);
 const tutComplete = ref(false);
 const arrowContainer = ref<HTMLElement | null>(null);
-const { t } = useI18n();  // Access to i18n
+const { t } = useI18n();
 
-const tutTextsLength = 4;  // Length of tutorial steps
+const tutTextsLength = 4; 
 const currentTextIndex = ref(0);
 const currentPositionIndex = ref(0);
 
-// Get the current tutorial text
 const currentText = computed(() => t(`tutTexts.${currentTextIndex.value}`));
 
-// Determine if it's the last step and display the correct button text ("NEXT" or "FINISH")
 const okText = computed(() => {
   return currentTextIndex.value === tutTextsLength - 1 ? t('finish') : t('next');
 });
 
-// Emit close event
 const emitCloseTut = () => emits('closeTut');
 
-// Determine the style of the arrow based on the current position
 const arrowStyle = computed(() => {
   return currentPositionIndex.value < 3 ? 'tleft' : 'bright';
 });
 
-// Handle moving to the next text
 function nextText() {
   emits('nextText');
   if (currentTextIndex.value === tutTextsLength - 1) {
-    tutComplete.value = true;  // Tutorial is complete
+    tutComplete.value = true;
   } else {
-    currentPositionIndex.value = (currentPositionIndex.value + 1) % 4;  // Cycle through positions
-    currentTextIndex.value = (currentTextIndex.value + 1) % tutTextsLength;  // Cycle through texts
+    currentPositionIndex.value = (currentPositionIndex.value + 1) % 4;
+    currentTextIndex.value = (currentTextIndex.value + 1) % tutTextsLength;
   }
 }
 </script>
-
-<style scoped>
-/* Your existing styles */
-</style>
-
 
 <style scoped>
 #tutPopups {
@@ -94,6 +84,10 @@ function nextText() {
   border: 2px solid var(--accent-primary);
   animation: slideUpDown .8s infinite ease-in-out;
   background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .arrow-container {
@@ -134,19 +128,18 @@ function nextText() {
 }
 
 .close-x {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   width: 100%;
-  height: 16px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding-bottom: 8px;
 }
 
 .close-x-itself {
-  width: 16px;
-  height: 16px;
+  width: var(--iconSmall-sq);
+  height: var(--iconSmall-sq);
   position: absolute;
   right: 2px;
+  top: 2px;
   cursor: pointer;
 }
 
