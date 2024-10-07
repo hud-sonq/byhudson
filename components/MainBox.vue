@@ -1,6 +1,6 @@
 <template>
     <div class="content-box-container" ref="wbc">
-        <TheEmphasisBehind/>
+        <TheEmphasisBehind :isWelcome="false" :isHome="true"/>
         <ContentBox @fsClicked="handleFullScreen()" @soundClicked="$emit('soundClicked')" @nextTutText="$emit('nextTutText')"/>
     </div>
 </template>
@@ -11,7 +11,9 @@ const zoomStore = useZoomStore();
 const emits = defineEmits(['soundClicked', 'nextTutText']);
 let wbc = ref<HTMLElement | null>(null);
 function handleFullScreen() {
-    zoomStore.toggleZoom();
+    if (!zoomStore.isZoomed) {
+        zoomStore.toggleZoom();
+    }
     if (wbc.value) {
         wbc.value.classList.toggle('fullscreen');
     }

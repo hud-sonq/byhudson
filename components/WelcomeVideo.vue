@@ -1,6 +1,6 @@
 <template>
   <div id="seqTest">
-    <video class="video-itself" @canplaythrough="handleCanPlayThrough" autoplay muted playsinline>
+    <video class="video-itself" ref="video" @canplaythrough="handleCanPlayThrough" muted playsinline>
       <source src="/load.mp4" type="video/mp4" />
     </video>
   </div>
@@ -9,11 +9,15 @@
 <script setup lang="ts">
 const emits = defineEmits(['loaded']);
 const hasEmitted = ref(false);
+const video = ref<HTMLVideoElement | null>(null);
 
 function handleCanPlayThrough() {
   if (!hasEmitted.value) {
-    emits('loaded');
-    hasEmitted.value = true;
+    setTimeout(() => {
+      emits('loaded');
+      hasEmitted.value = true;
+      video.value?.play();
+    }, 500);
   }
 }
 </script>

@@ -8,10 +8,21 @@
 </template>
 
 <script setup lang="ts">
+const props = defineProps<{
+    isWelcome: boolean;
+    isHome: boolean;
+}>();
 const eb = ref<HTMLElement | null>(null);
 const opacities = ref([0, 0, 0, 0]);
 
-function loopOpacityShift() {
+function useHomeAnimations() {
+    if (eb.value) {
+        eb.value.classList.add('homePulse');
+    }
+    loopBrackets();
+}
+
+function loopBrackets() {
     const brackets = document.querySelectorAll('.bracket');
     brackets.forEach((bracket, i) => {
         setTimeout(() => {
@@ -21,17 +32,31 @@ function loopOpacityShift() {
             opacities.value[i] = 0;
         }, 500 + i * 100);
     });
-    setTimeout(loopOpacityShift, 100 + brackets.length * 400);
+    setTimeout(loopBrackets, 100 + brackets.length * 400);
 }
-onMounted(() => {
-    loopOpacityShift(); 
-});
 
-onNuxtReady(() => {
+function animateIntro() {
     if (eb.value) {
-        eb.value.classList.add('active');
+        // eb.value.classList.add('introPulse');
+        setTimeout(() => {
+        if (eb.value) {
+            eb.value.classList.add('introPulse');
+        }
+    }, 250);
+        setTimeout(() => {
+        if (eb.value) {
+            console.log('resetting');
+            eb.value.classList.add('reset');
+        }
+    }, 1800);
+    }
+}
+
+onMounted(() => {
+    if (props.isHome) {
+        useHomeAnimations();
     } else {
-        console.log('emphasis behind not found');
+        animateIntro();
     }
 });
 </script>
@@ -46,12 +71,14 @@ onNuxtReady(() => {
 }
 
 #rainbowsContainer {
+    display: none;
     position: absolute;
     width: 100%;
     height: 100%;
     background: linear-gradient(80deg, var(--accent-tertiary) 0%, var(--accent-tertiary) 40%, #ff54ff 60%, #00ffe5 70%, #ffffff 90%, #008000 100%);
     background-size: 120% 100%;
     mask-image: radial-gradient(farthest-side, rgba(0,0,0,1), rgba(0,0,0,0) 100%);
+    transition: opacity 0.5s ease-in-out;
     /* animation: pulse 2s ease-in-out infinite; */
 }
 
@@ -91,11 +118,21 @@ onNuxtReady(() => {
     left: -42px; 
 }
 
-#emphasisBehindContainer.active > #rainbowsContainer {
-    animation: pulse 8s ease-in-out infinite;
+#emphasisBehindContainer.homePulse > #rainbowsContainer {
+    display: flex;
+    animation: homePulse 8s ease-in-out infinite;
 }
 
-@keyframes pulse {
+#emphasisBehindContainer.introPulse > #rainbowsContainer {
+    display: flex;
+    animation: introPulse 2000ms cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+#emphasisBehindContainer.reset > #rainbowsContainer {
+    opacity: 0;
+}
+
+@keyframes homePulse {
     0% {
         padding: 0;   
     }
@@ -106,6 +143,17 @@ onNuxtReady(() => {
     100% {
         padding: 0;
     }
+}
+
+@keyframes introPulse {
+  0% {
+    padding-right: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    padding-right: 100px;
+    transform: rotate(-100deg);
+  }
 }
 
 @media (max-width: 750px) {

@@ -1,21 +1,22 @@
 <template>
-    <div v-if="!videoLoaded">
-        <h4>{{ t('loading') }}</h4>
-    </div>
-    <div id="welcomeBoxContainer" ref="wbc">
-        <div id="brackets" ref="brackets" class="">
-            <div class="bracket tl-bracket"></div>
-            <div class="bracket br-bracket"></div>
-        </div>
-        <div id="cubeVideo" v-if="showCubeVideo">
-            <div class="cubes-video-container" ref="cubesVideoContainer">
-              <WelcomeVideo ref="cubeVideo" style="z-index: 10" @loaded="engageContent()"/>
-            </div>
-            <div class="welcome-text-container">
-                <div id="wt" ref="wt" style="height: fit-content;"><h4>{{ t('welcome') }}</h4></div>
-            </div>
-        </div>
-    </div>
+  <div v-if="!videoLoaded">
+      <h4>{{ t('loading') }}</h4>
+  </div>
+  <div id="welcomeBoxContainer" ref="wbc">
+    <TheEmphasisBehind :isWelcome="true" :isHome="false"/>
+      <div id="brackets" ref="brackets" class="">
+          <div class="bracket tl-bracket"></div>
+          <div class="bracket br-bracket"></div>
+      </div>
+      <div id="cubeVideo" v-if="showCubeVideo">
+          <div class="cubes-video-container" ref="cubesVideoContainer">
+            <WelcomeVideo ref="cubeVideo" style="z-index: 10" @loaded="engageContent()"/>
+          </div>
+          <div class="welcome-text-container">
+              <div id="wt" ref="wt" style="height: fit-content;"><h4>{{ t('welcome') }}</h4></div>
+          </div>
+      </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -129,6 +130,7 @@ function engageContent() {
 }
 
 #brackets {
+  background-color: var(--bg-primary);
   opacity: 0;
   transition: all cubic-bezier(0.18, 0.82, 0.5, 1) .4s;
   width: 100%;

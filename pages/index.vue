@@ -15,6 +15,7 @@ import { useSoundStore } from '@/stores/sound';
 const soundStore = useSoundStore();
 const { soundOn, toggleSound } = soundStore;
 const clickSounds = ref<Howl[]>([]);
+const welcomeDone = ref(false);
 clickSounds.value = [
     new Howl({ src: ['/click1.mp3'] }),
     new Howl({ src: ['/click2.mp3'] }),
@@ -49,6 +50,7 @@ function playLoop() {
 }
 
 function showMain() {
+    welcomeDone.value = true;
     mainBox.value?.classList.add('show');
     playLoop();
 }

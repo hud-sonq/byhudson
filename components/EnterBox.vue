@@ -14,7 +14,6 @@
                         <p>{{ t('yes') }}</p>
                     </div>
                 </div>
-                <TheEmphasisBehind style="width: 210px; height: 1px;" />
             </div>
         </Transition>
     </div>
