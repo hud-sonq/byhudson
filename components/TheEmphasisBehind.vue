@@ -48,7 +48,7 @@ function animateIntro() {
             console.log('resetting');
             eb.value.classList.add('reset');
         }
-    }, 1800);
+    }, 1400);
     }
 }
 
@@ -125,7 +125,7 @@ onMounted(() => {
 
 #emphasisBehindContainer.introPulse > #rainbowsContainer {
     display: flex;
-    animation: introPulse 2000ms cubic-bezier(0.42, 0, 0.58, 1) forwards;
+    animation: introPulse 1500ms cubic-bezier(0.42, 0, 0.58, 1) forwards;
 }
 
 #emphasisBehindContainer.reset > #rainbowsContainer {

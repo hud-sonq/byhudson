@@ -14,9 +14,9 @@ const video = ref<HTMLVideoElement | null>(null);
 function handleCanPlayThrough() {
   if (!hasEmitted.value) {
     setTimeout(() => {
+      video.value?.play();
       emits('loaded');
       hasEmitted.value = true;
-      video.value?.play();
     }, 500);
   }
 }
