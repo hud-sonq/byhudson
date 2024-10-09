@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!videoLoaded">
+  <div v-show="!videoLoaded">
       <h4>{{ t('loading') }}</h4>
   </div>
   <div id="welcomeBoxContainer" ref="wbc">
