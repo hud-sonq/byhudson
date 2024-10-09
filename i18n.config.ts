@@ -12,8 +12,8 @@ export default defineI18nConfig(() => ({
             ],
             infoTexts: [
                 `THIS SITE IS A WORK IN PROGRESS...`,
-                `IT'S ACTS AS MY PORTFOLIO AND PLAYGROUND FOR DESIGN...`,
-                `I PLAN TO FORGE MULTIMEDIA EXPERIENCES IN THE FUTURE ... `,
+                `IT'S ACTS AS MY PORTFOLIO AND AS MY PLAYGROUND FOR DESIGN...`,
+                `I WANNA MAKE WEB INTERACTION EXPERIENCES UNIQUE... `,
                 `THANKS FOR VISITING!`,
             ],
             loading: 'LOADING...',

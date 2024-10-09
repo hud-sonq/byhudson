@@ -5,16 +5,16 @@
   <div id="welcomeBoxContainer" ref="wbc">
     <TheEmphasisBehind :isWelcome="true" :isHome="false" v-if="videoLoaded"/>
     <div id="brackets" ref="brackets" class="">
-        <div class="bracket tl-bracket"></div>
-        <div class="bracket br-bracket"></div>
+      <div class="bracket tl-bracket"></div>
+      <div class="bracket br-bracket"></div>
     </div>
     <div id="cubeVideo" v-if="showCubeVideo">
-        <div class="cubes-video-container" ref="cubesVideoContainer">
-          <WelcomeVideo ref="cubeVideo" style="z-index: 10" @loaded="engageContent()"/>
-        </div>
-        <div class="welcome-text-container">
-            <div id="wt" ref="wt" style="height: fit-content;"><h4>{{ t('welcome') }}</h4></div>
-        </div>
+      <div class="cubes-video-container" ref="cubesVideoContainer">
+        <WelcomeVideo ref="cubeVideo" style="z-index: 10" @loaded="engageContent()"/>
+      </div>
+      <div class="welcome-text-container">
+        <div id="wt" ref="wt" style="height: fit-content;"><h4>{{ t('welcome') }}</h4></div>
+      </div>
     </div>
   </div>
 </template>
@@ -33,6 +33,7 @@ const wt = ref<HTMLElement | null>(null);
 const brackets = ref<HTMLElement | null>(null);
 
 function engageContent() {
+  console.log('engaging content');
   videoLoaded.value = true;
   emits('begun');
   setTimeout(() => {

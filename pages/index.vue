@@ -40,9 +40,11 @@ const loopSound = new Howl({
 });
 
 function playIntro() {
-    Howler.mute(!soundOn)
+    Howler.mute(!soundOn);
     introSound.play();
+    console.log('playing intro');
 }
+
 function playLoop() {
     Howler.mute(!soundOn);
     loopSound.loop(true);
