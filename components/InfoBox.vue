@@ -18,7 +18,7 @@
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 const emits = defineEmits(['closeInfo']);
-const infoTextsLength = 5;
+const infoTextsLength = 4;
 const currentTextIndex = ref(0);
 const currentText = computed(() => t(`infoTexts.${currentTextIndex.value}`));
 function nextText() {
