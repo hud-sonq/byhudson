@@ -153,6 +153,7 @@ onMounted(() => {
   100% {
     padding-right: 100px;
     transform: rotate(-100deg);
+    padding-left: 125px;
   }
 }
 
